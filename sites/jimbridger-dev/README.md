@@ -1,3 +1,3 @@
-# jimbridger.dev monorepo
+# jimbridger.dev
 
-This monorepo contains all relevant projects for my main site at jimbridger.dev
+My main site.
