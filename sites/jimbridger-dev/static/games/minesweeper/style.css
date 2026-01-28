@@ -1,0 +1,54 @@
+main {
+   display: flex;
+   gap: 10ch;
+}
+
+ol {
+   --cell-size: 2rem;
+}
+
+li > div {
+   border: 1px dotted grey;
+   gap: 0;
+   aspect-ratio: 1;
+   display: grid;
+   place-items: center;
+}
+
+p {
+   font-size: 2rem;
+   font-weight: bold;
+   margin: 0;
+}
+
+div.active.L {
+   background-color: violet;
+}
+
+div.active.J {
+   background-color: yellow;
+}
+
+div.active.I {
+   background-color: lightcoral;
+}
+
+div.active.O {
+   background-color: cornflowerblue;
+}
+
+div.active.T {
+   background-color: orange;
+}
+
+div.active.S {
+   background-color: lightgreen;
+}
+
+div.active.Z {
+   background-color: cyan;
+}
+
+div.ms {
+   font-weight: bold;
+}
