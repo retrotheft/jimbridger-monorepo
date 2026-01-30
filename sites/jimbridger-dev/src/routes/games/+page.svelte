@@ -1,5 +1,5 @@
 <script lang="ts">
-   const games = ['Minesweeper', 'Snake', 'Tetris']
+   const games = ['minesweeper', 'snake', 'tetris']
 </script>
 
 <main id="games">
