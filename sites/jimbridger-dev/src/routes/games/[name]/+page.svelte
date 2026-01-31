@@ -4,12 +4,13 @@
 
    const name = page.params.name
 
-   const html = $derived(getHtml(name))
+   const html = $derived(getHtml(name!))
 </script>
 
 <main id="games">
    <a href="/games">Back to Games</a>
    <div class="game-window" style="view-transition-name: game-{name};">
+      <!-- svelte-ignore a11y_autofocus -->
       <iframe
          autofocus
          id="embedded-game"
@@ -24,6 +25,7 @@
    main#games {
       display: grid;
       place-items: center;
+      gap: 1em;
    }
 
    .game-window {

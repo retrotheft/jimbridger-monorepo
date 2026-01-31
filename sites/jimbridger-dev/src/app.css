@@ -14,6 +14,8 @@ body {
    /*overflow: hidden;*/
    position: relative;
    overflow-y: scroll;
+   gap: 1em;
+   min-height: 100vh;
 }
 
 header {
@@ -36,6 +38,12 @@ header > nav {
          list-style-type: none;
       }
    }
+}
+
+footer {
+   display: grid;
+   justify-items: center;
+   font-size: 0.9rem;
 }
 
 ul, ol {

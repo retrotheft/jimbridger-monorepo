@@ -18,6 +18,11 @@
       place-items: center;
    }
 
+   ul {
+      display: grid;
+      gap: 0.5em;
+   }
+
    li {
       border: 1px solid white;
       background-color: rgba(0,0,0,0.5);
