@@ -8,6 +8,6 @@
    // })
 </script>
 
-{#each await getActivityFeed('retrotheft') as comment}
+{#each await getActivityFeed({ username: 'retrotheft', discussionNum: 3 }) as comment}
    <DiscussionComment {comment} />
 {/each}

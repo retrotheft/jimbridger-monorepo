@@ -6,7 +6,7 @@
 
 <article>
    <header>
-      <span>{comment.createdAt}</span>
+      <span>{new Date(comment.createdAt).toLocaleDateString('en-au')}</span>
    </header>
    <p>{comment.body}</p>
    <footer>{comment.author.login}</footer>
