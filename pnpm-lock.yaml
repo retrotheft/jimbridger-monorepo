@@ -76,6 +76,13 @@ importers:
         version: 7.3.1(@types/node@24.10.9)
 
   sites/jimbridger-dev:
+    dependencies:
+      dev-to:
+        specifier: workspace:*
+        version: link:../../packages/dev-to
+      github:
+        specifier: workspace:*
+        version: link:../../packages/github
     devDependencies:
       '@sveltejs/adapter-cloudflare':
         specifier: ^7.2.6

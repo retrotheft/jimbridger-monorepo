@@ -26,4 +26,14 @@
    <NavHeader />
 </header>
 
-{@render children()}
+<!-- {@render children()} -->
+
+<svelte:boundary>
+   {@render children()}
+   {#snippet pending()}
+      <p>Loading...</p>
+   {/snippet}
+   {#snippet failed()}
+      <p>An unknown error occurred.</p>
+   {/snippet}
+</svelte:boundary>

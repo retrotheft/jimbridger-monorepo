@@ -1,7 +1,7 @@
 <script lang="ts">
-   import { type DiscussionComment } from "$lib/types/index.js";
+   import { type DiscussionCommentType } from "$lib/types/index.js";
 
-   let { comment }: { comment: DiscussionComment } = $props()
+   let { comment }: { comment: DiscussionCommentType } = $props()
 </script>
 
 <article>

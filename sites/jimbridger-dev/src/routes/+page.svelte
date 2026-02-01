@@ -1,12 +1,18 @@
-<script lang="ts">
-</script>
-
 <main id="home">
    <section id="header">
       <article id="me">
          <h1>Jim Bridger</h1>
-         <p>Open-Source Developer</p>
-         <p>Obsessed with elegant software architecture and minimal APIs.</p>
+         <p>Hypercreative Open-Source Developer</p>
+         <ul id="technologies">
+            <li>Typescript</li>
+            <li>Svelte</li>
+            <li>Semantic HTML</li>
+            <li>Vanilla CSS</li>
+         </ul>
+         <h2>Sponsored by</h2>
+         <ul id="sponsors">
+            <li>Epicenter</li>
+         </ul>
       </article>
    </section>
    <section id="content">
@@ -29,6 +35,7 @@
       justify-content: stretch;
       gap: 0;
       position: sticky;
+      width: 160ch;
       /*height: 100vh;*/
    }
 
@@ -48,6 +55,7 @@
    section#header {
       color: white;
       position: sticky;
+      place-items: start;
    }
 
    section#content {
@@ -96,5 +104,11 @@
 
    dd {
       margin: 0;
+   }
+
+   ul#technologies {
+      display: flex;
+      font-family: monospace;
+      gap: 1em;
    }
 </style>

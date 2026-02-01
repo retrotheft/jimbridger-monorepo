@@ -1,4 +1,4 @@
-export type DiscussionComment = {
+export type DiscussionCommentType = {
    id: string,
    body: string,
    createdAt: string,
