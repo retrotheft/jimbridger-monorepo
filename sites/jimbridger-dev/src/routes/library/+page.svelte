@@ -1,5 +1,6 @@
 <script lang="ts">
    import { getArticles, ArticleCompact } from 'dev-to'
+   import '$lib/assets/library.css'
 </script>
 
 <main id="library">
