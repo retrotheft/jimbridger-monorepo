@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -F jimbridger-dev run dev",
+    "dev:devto": "pnpm -F dev-to run dev",
     "dev:github": "pnpm -F github run dev"
   },
   "keywords": [],
