@@ -1,0 +1,18 @@
+main#activity ol {
+   display: grid;
+   gap: 1em;
+   max-width: 70ch;
+}
+
+main#activity article {
+   border: 1px solid #444;
+   background-color: rgba(0,0,0,0.2);
+   border-radius: 1em;
+   padding: 1em;
+
+   & header {
+      font-weight: bold;
+      font-size: 0.85rem;
+      text-align: right;
+   }
+}

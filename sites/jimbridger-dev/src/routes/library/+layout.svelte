@@ -11,3 +11,10 @@
       <p>An unknown error occurred. (Library)</p>
    {/snippet}
 </svelte:boundary>
+
+<footer>
+   <p>
+      <em>powered by
+      <strong>dev.to</strong></em>
+   </p>
+</footer>

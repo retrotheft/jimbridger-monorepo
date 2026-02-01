@@ -1,5 +1,6 @@
 <script lang="ts">
    import { getActivityFeed, DiscussionComment } from "github";
+   import '$lib/assets/activity.css'
 </script>
 
 <main id="activity">

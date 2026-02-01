@@ -18,7 +18,7 @@ body {
    min-height: 100vh;
 }
 
-header {
+header.page {
    justify-self: stretch;
    position: sticky;
    top: 0;
@@ -27,7 +27,7 @@ header {
    backdrop-filter: blur(5px);
 }
 
-header > nav {
+header.page > nav {
    & ul {
       display: flex;
       justify-content: center;
@@ -41,7 +41,7 @@ header > nav {
    }
 }
 
-footer {
+footer.page {
    display: grid;
    justify-items: center;
    font-size: 0.9rem;

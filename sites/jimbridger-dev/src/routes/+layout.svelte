@@ -22,7 +22,7 @@
    <link rel="icon" href={favicon} />
 </svelte:head>
 
-<header>
+<header class="page">
    <NavHeader />
 </header>
 
