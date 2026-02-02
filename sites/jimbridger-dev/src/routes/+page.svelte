@@ -1,3 +1,9 @@
+<script>
+    import CacheBoundary from "$lib/components/CacheBoundary.svelte";
+    import Articles from '$lib/components/Articles.svelte'
+    import { getArticles } from "dev-to";
+</script>
+
 <main id="home">
    <section id="header">
       <article id="me">
@@ -24,7 +30,9 @@
             <dd>Making my site!</dd>
          </dl>
       </section>
-      <section id="footer">Footer</section>
+      <section id="footer">
+         <CacheBoundary key="articles" query={getArticles} Child={Articles} />
+      </section>
    </section>
 </main>
 
@@ -63,9 +71,9 @@
 
    }
 
-   section#content > * {
+   /*section#content > * {
       height: 500px;
-   }
+   }*/
 
    article {
       /*border: 1px dotted lightgrey;*/

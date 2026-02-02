@@ -9,6 +9,7 @@
 
 ## GitHub API
 
-- [ ] Write github api library
-   - [ ] discussions
+- [x] Write github api library
+   - [x] discussions
 - [ ] ship site!
+
