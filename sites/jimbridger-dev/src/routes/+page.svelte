@@ -1,7 +1,6 @@
 <script>
-    import CacheBoundary from "$lib/components/CacheBoundary.svelte";
-    import Articles from '$lib/components/Articles.svelte'
-    import { getArticles } from "dev-to";
+    import { cache } from '$lib/functions/cache';
+    import { getActivityFeed, DiscussionComment } from 'github';
 </script>
 
 <main id="home">
@@ -31,7 +30,9 @@
          </dl>
       </section>
       <section id="footer">
-         <CacheBoundary key="articles" query={getArticles} Child={Articles} />
+         {#each await cache({ getActivityFeed }, { username: "retrotheft", discussionNum: 3 }, ) as comment}
+            <li><DiscussionComment {comment} /></li>
+         {/each}
       </section>
    </section>
 </main>
