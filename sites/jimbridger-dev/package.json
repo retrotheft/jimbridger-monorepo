@@ -21,7 +21,7 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
-	   "github": "workspace:*",
-		"dev-to": "workspace:*"
+		"dev-to": "workspace:*",
+		"github": "workspace:*"
 	}
 }
