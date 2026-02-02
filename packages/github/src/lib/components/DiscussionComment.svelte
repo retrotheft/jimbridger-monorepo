@@ -16,6 +16,6 @@
    <header>
       <span>{new Date(comment.createdAt).toLocaleDateString('en-au')}</span>
    </header>
-   <p>{@html body}</p>
+   <div class="markdown">{@html body}</div>
    <footer>{comment.author.login}</footer>
 </article>

@@ -57,6 +57,18 @@ li {
    list-style-type: none;
 }
 
+.markdown {
+   & ul, ol {
+      all: revert;
+      /*padding-inline-start: revert;
+      list-style-type: revert;*/
+   }
+
+   & li {
+      all: revert;
+   }
+}
+
 a, a:visited {
    color: #bbb;
    text-decoration: none;

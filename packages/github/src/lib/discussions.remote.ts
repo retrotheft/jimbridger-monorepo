@@ -5,7 +5,8 @@ import { GraphQLClient, gql } from 'graphql-request'
 
 const client = new GraphQLClient('https://api.github.com/graphql', {
    headers: {
-      'Authorization': `Bearer ${GITHUB_TOKEN}`
+      'Authorization': `Bearer ${GITHUB_TOKEN}`,
+      'User-Agent': 'retrotheft'
    },
 })
 

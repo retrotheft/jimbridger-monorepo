@@ -1,6 +1,8 @@
 <script>
    import { cache } from "$lib/functions/cache";
    import { getActivityFeed, DiscussionComment } from "github";
+   import content from '$lib/assets/bio.md?raw'
+   import MarkdownIt from '$lib/components/MarkdownIt.svelte'
 </script>
 
 <main id="home">
@@ -21,7 +23,9 @@
       </article>
    </section>
    <section id="content">
-      <section id="blurb">The blurbiest blurb that ever blurbed</section>
+      <section id="blurb">
+         <MarkdownIt {content} />
+      </section>
       <section id="recent">
          <h2>Recent Activity</h2>
          <dl>
@@ -71,6 +75,10 @@
 
    section#content {
       height: 100%;
+   }
+
+   section#blurb {
+      place-items: start;
    }
 
    /*section#content > * {

@@ -1,5 +1,6 @@
 <script lang="ts">
-   import { getArticles, ArticleCompact } from 'dev-to'
+   import { getArticles } from '$lib/remote/articles.remote';
+   import { ArticleCompact } from 'dev-to'
    import '$lib/assets/library.css'
    import { cache } from "$lib/functions/cache";
 </script>
