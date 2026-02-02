@@ -9,6 +9,8 @@ interface CacheItem<T> {
  * @returns The cached value if valid, undefined otherwise
  */
 export function getFromCache<T>(key: string): T | undefined {
+   if (typeof window === 'undefined') return undefined
+
    try {
       const item = localStorage.getItem(key);
       if (!item) {
@@ -35,6 +37,8 @@ export function getFromCache<T>(key: string): T | undefined {
  * @param ttlMs - Time to live in milliseconds
  */
 export function setCache<T>(key: string, value: T, ttlMs: number): void {
+   if (typeof window === 'undefined') return undefined
+
    try {
       const item: CacheItem<T> = {
          value,
@@ -89,39 +93,43 @@ const inFlight = new Map<string, any>();
  * Wraps a SvelteKit remote query function with caching
  * Returns cached data as a SyntheticQuery on cache hit, or the real query on cache miss
  * Prevents duplicate requests for the same query while one is already in progress
+ * Only operates client-side - returns unwrapped query on server
  * @param record - Object containing the query function (e.g., { getArticles })
  * @param arg - Single argument to pass to the query function (can be object, array, or primitive)
- * @param ttl - Time to live in milliseconds (default: 5000)
+ * @param ttl - Time to live in milliseconds (default: 5min)
  * @returns Either a SyntheticQuery with cached data or the original query object
  */
 export function cache<TArg, TResult>(
-   record: Record<string, RemoteQueryFunction<TArg, TResult>>,
-   arg?: TArg,
-   ttl = 60000
+  record: Record<string, RemoteQueryFunction<TArg, TResult>>,
+  arg?: TArg,
+  ttl = 5 * 60 * 1000
 ) {
-   const fnName = Object.keys(record)[0];
-   const key = arg !== undefined ? `${fnName}:${JSON.stringify(arg)}` : fnName;
+  const fnName = Object.keys(record)[0];
+  const query = record[fnName];
 
-   const fromCache = getFromCache<TResult>(key);
-   if (fromCache) {
-      console.log("Cache HIT", key)
-      return new SyntheticQuery(fromCache);
-   }
-   console.log("Cache MISS", key)
-   // Check if already fetching
-   if (inFlight.has(key)) {
-      return inFlight.get(key);
-   }
+  // Skip caching on server - just return the query directly
+  if (typeof window === 'undefined') {
+    return arg !== undefined ? query(arg) : query();
+  }
 
-   const query = record[fnName];
-   const realQuery = arg !== undefined ? query(arg) : query();
+  const key = arg !== undefined ? `${fnName}:${JSON.stringify(arg)}` : fnName;
 
-   inFlight.set(key, realQuery);
+  const fromCache = getFromCache<TResult>(key);
+  if (fromCache) return new SyntheticQuery(fromCache);
 
-   realQuery
-      .then((res: TResult) => setCache(key, res, ttl))
-      .catch((error: Error) => console.error('Error caching query result:', error))
-      .finally(() => inFlight.delete(key));
+  // Check if already fetching
+  if (inFlight.has(key)) {
+    return inFlight.get(key);
+  }
 
-   return realQuery;
+  const realQuery = arg !== undefined ? query(arg) : query();
+
+  inFlight.set(key, realQuery);
+
+  realQuery
+    .then((res: TResult) => setCache(key, res, ttl))
+    .catch((error: Error) => console.error('Error caching query result:', error))
+    .finally(() => inFlight.delete(key));
+
+  return realQuery;
 }

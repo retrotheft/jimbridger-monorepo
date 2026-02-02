@@ -1,6 +1,6 @@
 <script>
-    import { cache } from '$lib/functions/cache';
-    import { getActivityFeed, DiscussionComment } from 'github';
+   import { cache } from "$lib/functions/cache";
+   import { getActivityFeed, DiscussionComment } from "github";
 </script>
 
 <main id="home">
@@ -30,9 +30,11 @@
          </dl>
       </section>
       <section id="footer">
-         {#each await cache({ getActivityFeed }, { username: "retrotheft", discussionNum: 3 }, ) as comment}
-            <li><DiscussionComment {comment} /></li>
-         {/each}
+         <ol id="activity-feed">
+            {#each await cache({ getActivityFeed }, { username: "retrotheft", discussionNum: 3 }) as comment}
+               <li><DiscussionComment {comment} /></li>
+            {/each}
+         </ol>
       </section>
    </section>
 </main>
@@ -69,7 +71,6 @@
 
    section#content {
       height: 100%;
-
    }
 
    /*section#content > * {
@@ -105,7 +106,8 @@
       color: #aaa;
    }
 
-   dt, dd {
+   dt,
+   dd {
       /*border: 1px solid lightgreen;*/
       display: inline-block;
       width: 100%;
@@ -119,5 +121,9 @@
       display: flex;
       font-family: monospace;
       gap: 1em;
+   }
+
+   ol#activity-feed li:nth-child(n+2) {
+      display: none;
    }
 </style>
