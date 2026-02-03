@@ -1,5 +1,6 @@
 <script lang="ts">
-   import { getActivityFeed, DiscussionComment } from "github";
+   import { getActivityFeed } from "$lib/remote/discussions.remote";
+   import DiscussionComment from '$lib/components/DiscussionComment.svelte'
    import "$lib/assets/activity.css";
    import { cache } from '$lib/functions/cache'
 </script>

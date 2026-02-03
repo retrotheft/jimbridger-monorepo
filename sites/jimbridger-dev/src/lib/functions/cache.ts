@@ -1,3 +1,5 @@
+import { type RemoteQueryFunction } from '@sveltejs/kit'
+
 interface CacheItem<T> {
    value: T;
    expiresAt: number;
@@ -84,10 +86,23 @@ class SyntheticQuery<T> {
    [Symbol.toStringTag] = 'Promise';
 }
 
-type RemoteQueryFunction<TArg, TResult> = (arg?: TArg) => any;
+// type RemoteQueryFunction<TArg, TResult> = (arg?: TArg) => Promise<TResult>;
 
 // Map to track in-flight requests and prevent duplicate fetches
 const inFlight = new Map<string, any>();
+
+// Overload signatures
+// export function cache<TResult>(
+//   record: Record<string, RemoteQueryFunction<undefined, TResult>>,
+//   arg?: undefined,
+//   ttl?: number
+// ): ReturnType<RemoteQueryFunction<undefined, TResult>>;
+
+// export function cache<TArg, TResult>(
+//   record: Record<string, RemoteQueryFunction<TArg, TResult>>,
+//   arg: TArg,
+//   ttl?: number
+// ): ReturnType<RemoteQueryFunction<TArg, TResult>>;
 
 /**
  * Wraps a SvelteKit remote query function with caching
@@ -109,7 +124,7 @@ export function cache<TArg, TResult>(
 
   // Skip caching on server - just return the query directly
   if (typeof window === 'undefined') {
-    return arg !== undefined ? query(arg) : query();
+    return arg !== undefined ? query(arg) : query(arg as TArg);
   }
 
   const key = arg !== undefined ? `${fnName}:${JSON.stringify(arg)}` : fnName;
@@ -122,7 +137,7 @@ export function cache<TArg, TResult>(
     return inFlight.get(key);
   }
 
-  const realQuery = arg !== undefined ? query(arg) : query();
+  const realQuery = arg !== undefined ? query(arg) : query(arg as TArg);
 
   inFlight.set(key, realQuery);
 

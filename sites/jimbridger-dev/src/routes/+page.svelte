@@ -1,6 +1,7 @@
 <script>
    import { cache } from "$lib/functions/cache";
-   import { getActivityFeed, DiscussionComment } from "github";
+   import { getActivityFeed } from "$lib/remote/discussions.remote";
+   import DiscussionComment from '$lib/components/DiscussionComment.svelte'
    import content from '$lib/assets/bio.md?raw'
    import MarkdownIt from '$lib/components/MarkdownIt.svelte'
 </script>

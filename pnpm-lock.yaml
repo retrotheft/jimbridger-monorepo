@@ -83,15 +83,21 @@ importers:
 
   sites/jimbridger-dev:
     dependencies:
-      dev-to:
+      '@jimbridger-monorepo/dev-to':
         specifier: workspace:*
         version: link:../../packages/dev-to
-      github:
+      '@jimbridger-monorepo/github':
         specifier: workspace:*
         version: link:../../packages/github
+      graphql-request:
+        specifier: ^7.4.0
+        version: 7.4.0(graphql@16.12.0)
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
     devDependencies:
       '@sveltejs/adapter-cloudflare':
         specifier: ^7.2.6

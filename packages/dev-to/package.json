@@ -1,5 +1,5 @@
 {
-	"name": "dev-to",
+	"name": "@jimbridger-monorepo/dev-to",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
