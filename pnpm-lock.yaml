@@ -83,12 +83,6 @@ importers:
 
   sites/jimbridger-dev:
     dependencies:
-      '@jimbridger-monorepo/dev-to':
-        specifier: workspace:*
-        version: link:../../packages/dev-to
-      '@jimbridger-monorepo/github':
-        specifier: workspace:*
-        version: link:../../packages/github
       graphql-request:
         specifier: ^7.4.0
         version: 7.4.0(graphql@16.12.0)
