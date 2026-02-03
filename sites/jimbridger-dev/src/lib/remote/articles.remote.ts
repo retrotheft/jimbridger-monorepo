@@ -9,8 +9,9 @@ export const getArticles = query(
       if (cached) return JSON.parse(cached)
 
       const response = await fetch('https://dev.to/api/articles/me/published', {
-        headers: {
-          'api-key': DEVTO_TOKEN
+         headers: {
+            'api-key': DEVTO_TOKEN,
+            'User-Agent': "jimbridger.dev (retrotheft@github)"
         }
       })
       const data = await response.json()
