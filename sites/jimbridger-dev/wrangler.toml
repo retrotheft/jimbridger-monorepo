@@ -3,8 +3,8 @@ pages_build_output_dir = ".svelte-kit/cloudflare"
 compatibility_flags = ["nodejs_compat"]
 compatibility_date = "2025-01-25"
 
-# production
-[[env.production.kv_namespaces]]
+# top level for production
+[[kv_namespaces]]
 binding = "CACHE"
 id = "8a29fcc28a964ad1af06df234507e1c7"
 
