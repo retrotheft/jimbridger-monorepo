@@ -1,9 +1,9 @@
 <script>
    import { cache } from "$lib/functions/cache";
    import { getActivityFeed } from "$lib/remote/discussions.remote";
-   import DiscussionComment from '$lib/components/DiscussionComment.svelte'
-   import content from '$lib/assets/bio.md?raw'
-   import MarkdownIt from '$lib/components/MarkdownIt.svelte'
+   import DiscussionComment from "$lib/components/DiscussionComment.svelte";
+   import content from "$lib/assets/bio.md?raw";
+   import MarkdownIt from "$lib/components/MarkdownIt.svelte";
 </script>
 
 <main id="home">
@@ -36,9 +36,17 @@
       </section>
       <section id="footer">
          <ol id="activity-feed">
-            {#each await cache({ getActivityFeed }, { username: "retrotheft", discussionNum: 3 }) as comment}
-               <li><DiscussionComment {comment} /></li>
-            {/each}
+            <svelte:boundary>
+               {#each await cache({ getActivityFeed }, { username: "retrotheft", discussionNum: 3 }) as comment}
+                  <li><DiscussionComment {comment} /></li>
+               {/each}
+               {#snippet pending()}
+                  <p>Loading articles from Dev.to...</p>
+               {/snippet}
+               {#snippet failed()}
+                  <p>An unknown error occurred. (Library)</p>
+               {/snippet}
+            </svelte:boundary>
          </ol>
       </section>
    </section>
@@ -132,7 +140,7 @@
       gap: 1em;
    }
 
-   ol#activity-feed li:nth-child(n+2) {
+   ol#activity-feed li:nth-child(n + 2) {
       display: none;
    }
 </style>
