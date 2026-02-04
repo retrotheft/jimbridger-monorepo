@@ -1,4 +1,4 @@
-import { query } from '$app/server';
+import { getRequestEvent, query } from '$app/server';
 import { GITHUB_TOKEN } from '$env/static/private';
 import z from 'zod';
 import { GraphQLClient, gql } from 'graphql-request'
@@ -36,11 +36,19 @@ export const getActivityFeed = query(
       discussionNum: z.number()
    }),
    async ({ username, discussionNum }) => {
+      const kv = getRequestEvent().platform!.env.CACHE
+
+      const cached = await kv.get('github:activity-feed')
+      if (cached) return JSON.parse(cached)
+
       const data = await client.request(GET_DISCUSSION, {
          owner: username,
          repo: username,
          number: discussionNum
       });
+
+
+      kv.put('github:activity-feed', JSON.stringify(data), { expirationTtl: 60 })
 
       return data.repository.discussion.comments.nodes || [];
    }

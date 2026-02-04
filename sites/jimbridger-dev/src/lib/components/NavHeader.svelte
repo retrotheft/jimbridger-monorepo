@@ -11,7 +11,6 @@
 <style>
    nav {
       padding-block: 1em;
-      font-family: Lato;
       font-weight: 400;
       font-size: 1.2rem;
       text-transform: lowercase;
