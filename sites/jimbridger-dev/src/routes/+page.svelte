@@ -140,7 +140,7 @@
       gap: 1em;
    }
 
-   ol#activity-feed li:nth-child(n + 2) {
+   ol#activity-feed li:nth-child(n + 3) {
       display: none;
    }
 </style>

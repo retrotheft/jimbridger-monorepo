@@ -50,6 +50,6 @@ export const getActivityFeed = query(
 
       kv.put('github:activity-feed', JSON.stringify(data), { expirationTtl: 60 })
 
-      return data.repository.discussion.comments.nodes || [];
+      return data.repository.discussion.comments.nodes.reverse() || [];
    }
 );
