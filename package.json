@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -F jimbridger-dev run dev",
-    "dev:devto": "pnpm -F dev-to run dev",
-    "dev:github": "pnpm -F github run dev",
-    "build:devto": "pnpm -F dev-to run build",
-    "build:github": "pnpm -F github run build"
+    "dev:sk": "pnpm -F sitekit run dev"
   },
   "keywords": [],
   "author": "",
