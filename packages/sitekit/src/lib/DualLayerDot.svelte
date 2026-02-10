@@ -9,8 +9,9 @@
     coarseRadius = 1,
     coarseFill = '#FFFFFF09',
     // Shared
-    // gradient = 'linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0.7) 100%)'
-    gradient = 'linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0.7) 100%)'
+    gradient = 'linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0.7) 100%)',
+    // gradient = 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 33%, rgba(0,0,0,1) 100%)',
+    children
   } = $props();
 
   function makeSvg(size: number, radius: number, fill: string) {
@@ -33,7 +34,7 @@
   style:--coarse-size="{coarseSize}px"
   style:--dot-gradient={gradient}
 >
-  Hello there
+  {@render children?.()}
 </div>
 
 <style>
@@ -46,11 +47,11 @@
       var(--fine-size) var(--fine-size),
       var(--coarse-size) var(--coarse-size),
       cover;
-    border: 1px solid transparent;
+    /*border: 1px solid #000;*/
     border-radius: 1em;
     display: grid;
     place-items: center;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.2);
     /*height: 100cqi;*/
   }
 </style>

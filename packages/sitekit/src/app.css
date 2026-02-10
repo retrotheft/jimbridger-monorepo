@@ -1,5 +1,6 @@
 body {
    background-color: hsl(240 10% 15%);
+   background-color: black;
    color: white;
    font-family: sans-serif;
    display: grid;
