@@ -26,3 +26,22 @@ body {
        linear-gradient(135deg, #ff0000, #0000ff);
      background-size: 20px 20px, cover;
 }
+
+/* 1. Dark matte flat */
+body.matte {
+  background: #1a1a1a;
+}
+
+/* 2. Subtle noise — single fine dot layer */
+body.noise {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3'%3E%3Ccircle cx='1.5' cy='1.5' r='0.5' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") repeat,
+    #1a1a1a;
+}
+
+/* 3. Brushed horizontal lines */
+body.brushed {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='2'%3E%3Crect width='1' height='1' fill='rgba(255,255,255,0.02)'/%3E%3C/svg%3E") repeat,
+    #1a1a1a;
+}
