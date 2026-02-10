@@ -1,3 +1,7 @@
+<script lang="ts">
+   import { DualLayerDot, TextRecessed } from "sitekit";
+</script>
+
 <nav>
    <ul>
       <li><a href="/">About Me</a></li>
@@ -10,7 +14,6 @@
 
 <style>
    nav {
-      padding-block: 1em;
       font-weight: 400;
       font-size: 1.2rem;
       text-transform: lowercase;

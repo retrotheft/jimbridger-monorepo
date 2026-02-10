@@ -1,6 +1,6 @@
-# Blurb
+## about me
 
-This is my blurb on tv!
+doing my own thing...
 
 1. Markdown
 2. Blurby

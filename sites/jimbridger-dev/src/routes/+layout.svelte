@@ -3,6 +3,7 @@
    import "../app.css";
    import NavHeader from "$lib/components/NavHeader.svelte";
    import { onNavigate } from "$app/navigation";
+   import { ShinyBorder, DualLayerDot, TextRecessed } from "sitekit";
 
    let { children } = $props();
 
@@ -22,8 +23,14 @@
    <link rel="icon" href={favicon} />
 </svelte:head>
 
-<header class="page">
-   <NavHeader />
-</header>
+<ShinyBorder>
+   <DualLayerDot>
+      <TextRecessed>
+         <header class="page">
+            <NavHeader />
+         </header>
 
-{@render children()}
+         {@render children()}
+      </TextRecessed>
+   </DualLayerDot>
+</ShinyBorder>

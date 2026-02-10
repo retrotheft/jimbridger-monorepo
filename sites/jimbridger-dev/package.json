@@ -23,6 +23,7 @@
 	"dependencies": {
 		"graphql-request": "^7.4.0",
 		"markdown-it": "^14.1.0",
+		"sitekit": "workspace:*",
 		"zod": "^4.3.6"
 	}
 }

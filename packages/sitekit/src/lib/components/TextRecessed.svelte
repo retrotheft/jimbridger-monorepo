@@ -10,7 +10,6 @@
    div {
       font-family: 'Nunito Sans';
       line-height: 1.3rem;
-      padding: 2em;
       letter-spacing: 0.05em;
       font-size: 1rem;
       color: #ccc;

@@ -1,4 +1,4 @@
-body {
+/*body {
    --background-one: #ff6b6b;
    --background-two: #4ecdc4;
    background-color: #030303;
@@ -9,13 +9,22 @@ body {
    display: grid;
    justify-items: center;
    align-content: start;
-   /*height: 100vh;*/
    margin: 0;
-   /*overflow: hidden;*/
    position: relative;
    overflow-y: scroll;
    gap: 1em;
    min-height: 100vh;
+}*/
+
+body {
+   background-color:black;
+   color: white;
+   font-family: sans-serif;
+   display: grid;
+   height: 100vh;
+   margin: 0;
+   position: relative;
+   /*overflow-y: scroll;*/
 }
 
 header.page {
@@ -23,8 +32,9 @@ header.page {
    position: sticky;
    top: 0;
    z-index: 1;
-   background-color: rgba(0,0,0,0.0);
+   background-color: oklch(20% 0 0 / 0.5);
    backdrop-filter: blur(5px);
+   padding-block: 1em;
 }
 
 header.page > nav {
@@ -77,4 +87,25 @@ a, a:visited {
       color: white;
       text-decoration: underline;
    }
+}
+
+main#home ol#activity-feed {
+   display: grid;
+   gap: 1em;
+   padding: 1em;
+
+   > li {
+     border-radius: 1em;
+   }
+}
+
+main#home ol#activity-feed li:nth-child(n + 6) {
+   display: none;
+}
+
+ul#technologies > li {
+   display: grid;
+   place-items: center;
+   padding: 0.25em 0.75em;
+   border-radius: 0.5em;
 }

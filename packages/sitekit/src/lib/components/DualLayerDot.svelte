@@ -48,9 +48,8 @@
       var(--coarse-size) var(--coarse-size),
       cover;
     /*border: 1px solid #000;*/
-    border-radius: 1em;
+    /*border-radius: 1em;*/
     display: grid;
-    place-items: center;
     background-color: rgba(0,0,0,0.2);
   }
 </style>

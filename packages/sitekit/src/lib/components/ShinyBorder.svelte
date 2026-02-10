@@ -8,16 +8,17 @@
 
 <style>
    div {
-      --border-radius: 1em;
-      --border-color: oklch(30% 0 0);
-      --border-edges: oklch(20% 0 0);
-      --border-center: oklch(40% 0 0);
+      /*--border-radius: 1em;*/
+      --border-color: oklch(30% 0 0 / 0.5);
+      --border-edges: oklch(20% 0 0 / 0.5);
+      --border-center: oklch(40% 0 0 / 0.5);
       --_padding: 1px;
-      --_border-radius: calc(var(--border-radius) - var(--_padding));
+      /*--_border-radius: calc(var(--border-radius) - var(--_padding));*/
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
       padding: var(--_padding);
+      padding: 0;
       background: linear-gradient(
          var(--gradient-angle),
          var(--border-edges) 0%,
@@ -28,7 +29,6 @@
       );
       border-radius: var(--_border-radius);
       animation: rotate-gradient 120s linear infinite;
-      overflow: hidden;
    }
 
    @property --gradient-angle {

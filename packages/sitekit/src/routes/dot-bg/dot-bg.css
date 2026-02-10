@@ -1,0 +1,25 @@
+@property --hue {
+   syntax: '<number>';
+   initial-value: 0;
+   inherits: false;
+}
+
+@keyframes rotate-hue {
+   to {
+      --hue: 359;
+   }
+}
+
+body {
+   margin: 0;
+   height: 100vh;
+   display: grid;
+   background-color: black;
+   background-color: oklch(30% .12 var(--hue));
+   animation: rotate-hue 60s linear infinite;
+}
+
+.glass-panel > header {
+   color: oklch(80% .21 var(--hue));
+   animation: rotate-hue 60s linear infinite;
+}

@@ -1,6 +1,6 @@
 body {
-   background-color: hsl(240 10% 6);
-   background-color: oklch(10% 0 0);
+   /*background-color: hsl(240 10% 6);*/
+   background-color: black;
    color: white;
    font-family: sans-serif;
    display: grid;

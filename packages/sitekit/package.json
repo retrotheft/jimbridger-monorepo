@@ -31,6 +31,7 @@
 		"svelte": "^5.0.0"
 	},
 	"devDependencies": {
+		"@js-temporal/polyfill": "^0.5.1",
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.50.2",
 		"@sveltejs/package": "^2.5.7",

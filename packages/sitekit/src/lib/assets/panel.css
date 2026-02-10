@@ -1,0 +1,19 @@
+.glass-panel {
+   header {
+      padding: var(--_padding, 1em);
+      background-color: oklch(15% 0 0 / 0.9);
+      font-weight: bold;
+      text-align: center;
+   }
+
+   & > div {
+      padding: var(--_padding, 1em);
+   }
+
+   footer {
+      padding: var(--_padding, 1em);
+      background-color: oklch(15% 0 0 / 0.5);
+      font-size: 0.75rem;
+      font-family: monospace;
+   }
+}
