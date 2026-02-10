@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
    import { cache } from "$lib/functions/cache";
    import { getActivityFeed } from "$lib/remote/discussions.remote";
    import DiscussionComment from "$lib/components/DiscussionComment.svelte";
@@ -6,9 +6,23 @@
    import MarkdownIt from "$lib/components/MarkdownIt.svelte";
    import { PanelGlass } from "sitekit";
 
-   const technologies = ['Typescript', 'Svelte', 'Semantic HTML', 'Vanilla CSS', 'Rust'];
-   const colors = ['cornflowerblue', 'red', 'yellow', 'lightgreen', 'orange']
+   const technologies = ['Typescript', 'Svelte', 'HTML', 'CSS', 'Rust'];
+   // const colors = ['#2d69b4', '#f33a1b', '#d6452a', '#2242d1', '#f36541']
+   const colors = ['#2d69b4', '#f33a1b', '#cfc22f', 'limegreen', 'coral']
+
+   let color = $state(colors[0]);
+
+   const injectStyles = (color: string) => (node: HTMLElement) => {
+      node.textContent = `:root {
+         --_bg-color: oklch(from ${color} l .09 h / 1);
+         --_hl-color: oklch(from ${color} 80% .21 h / 1);
+      }`
+   }
 </script>
+
+<svelte:head>
+   <style {@attach injectStyles(color)}></style>
+</svelte:head>
 
 <main id="home">
    <section id="header">
@@ -18,7 +32,9 @@
          <p>Hypercreative Open-Source Developer</p>
          <ul id="technologies">
             {#each technologies as t, i}
-               <PanelGlass tag="li" color={`oklch(from ${colors[i]} 55% c h / 0.9)`}>{t}</PanelGlass>
+               <PanelGlass tag="li" color={`oklch(from ${colors[i]} 55% c h / 0.9)`}>
+                  <button onclick={() => color = colors[i]}>{t}</button>
+               </PanelGlass>
             {/each}
          </ul>
          <h2>Sponsored by</h2>
@@ -35,7 +51,7 @@
    </section>
    <section id="content">
       <section id="recent">
-      <h2>Recent Activity</h2>
+      <h2>Latest Activity</h2>
          <ol id="activity-feed">
             <svelte:boundary>
                {#each await cache({ getActivityFeed }, { username: "retrotheft", discussionNum: 3 }) as comment}
@@ -60,9 +76,10 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0;
+      gap: 5%;
       position: sticky;
       top: 0;
+      /*background-color: var(--_bg-color);*/
       /*width: 160ch;*/
       /*height: 100vh;*/
    }
@@ -114,11 +131,7 @@
       top: 5rem;
    }
 
-   ul#technologies {
-      display: flex;
-      flex-wrap: wrap;
-      /*font-family: monospace;*/
-      /*gap: 1em;*/
-      font-size: 0.8rem;
+   section#content h2 {
+      text-align: center;
    }
 </style>
