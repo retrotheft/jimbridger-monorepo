@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -F jimbridger-dev run dev",
-    "dev:sk": "pnpm -F sitekit run dev"
+    "dev:sk": "pnpm -F sitekit run dev",
+    "build:sk": "pnpm -F sitekit run build"
   },
   "keywords": [],
   "author": "",
