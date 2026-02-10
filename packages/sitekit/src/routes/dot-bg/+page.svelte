@@ -1,5 +1,6 @@
 <script lang="ts">
    import './dot-bg.css'
+   import { Temporal } from '@js-temporal/polyfill'
    import { ShinyBorder, DualLayerDot, TextRecessed, PanelGlass } from '$lib/index.js'
 </script>
 

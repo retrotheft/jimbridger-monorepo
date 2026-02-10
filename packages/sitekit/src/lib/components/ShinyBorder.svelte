@@ -27,6 +27,7 @@
          var(--border-edges) 85%,
          var(--border-edges) 100%
       );
+      background-attachment: fixed;
       border-radius: var(--_border-radius);
       animation: rotate-gradient 120s linear infinite;
    }

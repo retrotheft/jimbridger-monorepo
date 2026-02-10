@@ -8,14 +8,14 @@
 
    const technologies = ['Typescript', 'Svelte', 'HTML', 'CSS', 'Rust'];
    // const colors = ['#2d69b4', '#f33a1b', '#d6452a', '#2242d1', '#f36541']
-   const colors = ['#2d69b4', '#f33a1b', '#cfc22f', 'limegreen', 'coral']
+   const colors = ['#2d69b4', '#f33a1b', '#cfc22f', 'limegreen', 'orange']
 
    let color = $state(colors[0]);
 
    const injectStyles = (color: string) => (node: HTMLElement) => {
       node.textContent = `:root {
-         --_bg-color: oklch(from ${color} l .09 h / 1);
-         --_hl-color: oklch(from ${color} 80% .21 h / 1);
+         --_bg-color: oklch(from ${color} 50% .09 h / 1);
+         --_hl-color: oklch(from ${color} 80% .16 h / 1);
       }`
    }
 </script>
@@ -77,7 +77,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 5%;
-      position: sticky;
+      /*position: sticky;*/
       top: 0;
       /*background-color: var(--_bg-color);*/
       /*width: 160ch;*/
@@ -106,16 +106,18 @@
 
    section#content {
       /*height: 100%;*/
+      max-width: 80ch;
       display: grid;
       gap: 1em;
+      padding-block: 1em;
+
+      h2 {
+         text-align: center;
+      }
    }
 
    section#blurb {
       /*place-items: start;*/
-   }
-
-   section#content > * {
-      height: 750px;
    }
 
    article {
@@ -129,9 +131,5 @@
       position: sticky;
       align-self: start;
       top: 5rem;
-   }
-
-   section#content h2 {
-      text-align: center;
    }
 </style>
