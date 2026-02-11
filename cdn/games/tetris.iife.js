@@ -4538,6 +4538,7 @@ var Tetris = (function() {
       new ThrottledInput("rotate-countercw", 250, () => check(get(move2).countercw(get(shape).origin)), ["KeyE", "Numpad9"]),
       new ThrottledInput("flip", 250, () => check(get(move2).flip(get(shape).origin)), ["Numpad0"])
     ];
+    user_effect(() => window.parent.postMessage({ type: "reggie-game-state", data: { score: get(score) } }));
     var fragment = root();
     head("1n46o8q", ($$anchor2) => {
       var link2 = root_1();
