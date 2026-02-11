@@ -138,6 +138,10 @@ ul#technologies {
          all: unset;
          display: block;
          padding: 0.25em 0.75em;
+
+         &:hover {
+            filter: drop-shadow(0 0 4px white);
+         }
       }
    }
 }

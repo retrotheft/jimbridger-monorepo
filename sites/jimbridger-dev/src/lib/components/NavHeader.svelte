@@ -5,7 +5,7 @@
 <nav>
    <ul>
       <li><a href="/">About Me</a></li>
-      <!-- <li><a href="/activity">Activity</a></li> -->
+      <li><a href="/activity">Activity</a></li>
       <li><a href="/library">Library</a></li>
       <li><a href="/games">Games</a></li>
       <!-- <li><a href="/presentations">Presentations</a></li> -->

@@ -21,11 +21,11 @@
       border-radius: 50%;
       overflow: hidden;
       /*mask-image: -webkit-radial-gradient(white, black);*/
-      background: linear-gradient(var(--_gradient-angle), var(--_color-1) 0%, var(--_color-1) 40%, var(--_color-2) 50%);
+      background: linear-gradient(var(--_gradient-angle), var(--_color-1) 0%, var(--_color-1) 0%, var(--_color-2) 50%);
       background-color: white;
       background-position: 0;
       background-size: 200% 200%;
-      animation: rotate-gradient 120s linear infinite;
+      /*animation: rotate-gradient 120s linear infinite;*/
    }
 
    img {

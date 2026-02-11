@@ -17,7 +17,7 @@
    <section id="header">
       <!-- <PanelGlass tag="article" color="oklch(45% 0 0 / 0.1)"> -->
       <article id="me">
-         <!-- <Avatar /> -->
+         <Avatar />
          <h1>Jim Bridger</h1>
          <p>Hypercreative Open-Source Developer</p>
          <ul id="technologies">
