@@ -20,6 +20,7 @@
       border: 5px solid oklch(from var(--_color) 30% .2 h / 1);
       border-radius: 50%;
       overflow: hidden;
+      /*mask-image: -webkit-radial-gradient(white, black);*/
       background: linear-gradient(var(--_gradient-angle), var(--_color-1) 0%, var(--_color-1) 40%, var(--_color-2) 50%);
       background-color: white;
       background-position: 0;

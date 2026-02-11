@@ -1,7 +1,6 @@
 <script lang="ts">
    import { type DiscussionCommentType } from "$lib/types/index.js";
    import markdownit from "markdown-it";
-   import { Temporal } from '@js-temporal/polyfill'
 
    let { comment }: { comment: DiscussionCommentType } = $props();
 

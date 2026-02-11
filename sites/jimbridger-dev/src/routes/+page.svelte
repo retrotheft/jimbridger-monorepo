@@ -50,6 +50,13 @@
             <!-- This is my voice on tv! -->
             <MarkdownIt {content} />
          </section>
+         <section id="socials">
+            <h2>social</h2>
+            <ul>
+               <li>github</li>
+               <li>discord</li>
+            </ul>
+         </section>
       </article>
       <!-- </PanelGlass> -->
 
@@ -109,6 +116,14 @@
       /*place-items: start;*/
    }
 
+   section#blurb {
+      max-width: 32ch;
+   }
+
+   section#socials {
+      max-widtH: 32ch;
+   }
+
    section#content {
       /*height: 100%;*/
       max-width: 80ch;
@@ -118,11 +133,8 @@
 
       h2 {
          text-align: center;
+         padding-inline: 1em;
       }
-   }
-
-   section#blurb {
-      /*place-items: start;*/
    }
 
    article {
@@ -140,7 +152,7 @@
    }
 
    div#sponsor {
-      padding-block: 3em;
+      padding-block: 3em 2em;
       display: flex;
       /*justify-content: flex-end;*/
    }

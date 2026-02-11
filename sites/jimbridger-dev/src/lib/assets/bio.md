@@ -1,9 +1,3 @@
 ## about me
 
-doing my own thing...
-
-1. Markdown
-2. Blurby
-
-- unordered list
-- second item
+Hi! I'm Jim, a self-taught fullstack dev from Melbourne, Australia.
