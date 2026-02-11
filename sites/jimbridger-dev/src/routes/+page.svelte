@@ -19,11 +19,19 @@
          --_hl-color: oklch(from ${color} 80% .16 h / 1);
       }`
    }
+
+   const projects = [
+      'one of my svelte libraries',
+      'a tiny game demo with Reggie the Reverse Game Engine',
+      'porting Reggie to Rust',
+      'my presentation app Show & Svelte',
+      'my super secret project that was absolutely not ready to be pushed to production',
+      'a new youtube video (soon!)',
+      'a new article on dev.to',
+   ]
 </script>
 
-<svelte:head>
-   <style {@attach injectStyles(color)}></style>
-</svelte:head>
+<!-- <svelte:head> located at bottom of file -->
 
 <main id="home">
    <section id="header">
@@ -39,15 +47,7 @@
                </PanelGlass>
             {/each}
          </ul>
-         <!-- <h2>Sponsored by</h2>
-         <ul id="sponsors">
-            <li>Epicenter</li>
-         </ul> -->
-         <div id="sponsor">
-            <SponsoredByEpicenter />
-         </div>
          <section id="blurb">
-            <!-- This is my voice on tv! -->
             <MarkdownIt {content} />
          </section>
          <section id="socials">
@@ -57,6 +57,9 @@
                <li>discord</li>
             </ul>
          </section>
+         <div id="sponsor">
+            <SponsoredByEpicenter />
+         </div>
       </article>
       <!-- </PanelGlass> -->
 
@@ -89,43 +92,32 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 5%;
-      /*position: sticky;*/
       top: 0;
-      /*background-color: var(--_bg-color);*/
-      /*width: 160ch;*/
-      /*height: 100vh;*/
    }
 
    section:not(#blurb) {
       box-sizing: border-box;
-      /*flex: 1 0 50%;*/
-      /*min-width: 50ch;*/
       display: grid;
-      /*place-items: center;*/
-      /*padding: 1em;*/
-      /*align-items: start;*/
       align-content: start;
-      /*border: 1px dotted hotpink;*/
    }
 
    section#header {
       color: white;
-      /*position: sticky;*/
-      /*align-self: start;*/
-      /*top: 0;*/
-      /*place-items: start;*/
    }
 
-   section#blurb {
+   section#blurb, section#projects {
       max-width: 32ch;
    }
 
+   section#projects {
+
+   }
+
    section#socials {
-      max-widtH: 32ch;
+      max-width: 32ch;
    }
 
    section#content {
-      /*height: 100%;*/
       max-width: 80ch;
       display: grid;
       gap: 1em;
@@ -138,9 +130,6 @@
    }
 
    article {
-      /*border: 1px dotted lightgrey;*/
-      /*border-radius: 1em;*/
-      /*padding: 1em;*/
       max-width: 50ch;
    }
 
@@ -154,6 +143,10 @@
    div#sponsor {
       padding-block: 3em 2em;
       display: flex;
-      /*justify-content: flex-end;*/
    }
 </style>
+
+<!-- this lives down the bottom because it screws with the syntax highlighting -->
+<svelte:head>
+   <style {@attach injectStyles(color)}></style>
+</svelte:head>

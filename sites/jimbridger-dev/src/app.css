@@ -70,6 +70,9 @@ li {
 .markdown {
    ul, ol {
       all: revert;
+      line-height: 1.4em;
+      display: grid;
+      gap: 0.25em;
       /*padding-inline-start: revert;
       list-style-type: revert;*/
    }
@@ -94,10 +97,15 @@ a, a:visited {
    }
 }
 
+main#home {
+   letter-spacing: 0.04em;
+}
+
 main#home ol#activity-feed {
    display: grid;
    gap: 1em;
    padding: 1em;
+   font-weight: 500;
 
    > li {
      border-radius: 1em;
@@ -133,4 +141,21 @@ ul#technologies {
 body {
    /*--_bg-color: oklch(from cornflowerblue 50% 0.12 h / 1);*/
    background-color: var(--_bg-color);
+}
+
+article#me .markdown ul {
+   padding-inline-start: 0;
+
+   > li {
+      position: relative;
+      list-style-type: none;
+   }
+
+   > li:before {
+      content: '>';
+      color: lightslategray;
+      position: absolute;
+      right: 102%;
+
+   }
 }
