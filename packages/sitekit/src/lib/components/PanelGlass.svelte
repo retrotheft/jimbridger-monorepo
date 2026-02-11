@@ -14,6 +14,7 @@
       --_base-color: var(--base-color, oklch(45% 0 0 / 0.1));
       display: grid;
       backdrop-filter: blur(1.2px);
+      will-change: backdrop-filter;
       background-color: oklch(from var(--_base-color) l c h / 0.2);
       border-top: 1px solid oklch(from var(--_base-color) l c h / 0.5);
       overflow: hidden;

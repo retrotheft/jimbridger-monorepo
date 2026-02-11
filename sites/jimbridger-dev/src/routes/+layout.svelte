@@ -26,7 +26,16 @@
    setLayoutContext({
       setColor: (c: string) => color = c
    })
+
+   const onresize = () => {
+      console.log("Repainting after resize");
+      document.body.style.display = 'none';
+      document.body.offsetHeight; // force reflow
+      document.body.style.display = '';
+   }
 </script>
+
+<svelte:window {onresize} />
 
 <!-- <svelte:head> located at bottom of file -->
 
