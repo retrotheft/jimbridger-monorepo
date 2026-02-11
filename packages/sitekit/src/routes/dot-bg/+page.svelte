@@ -1,7 +1,13 @@
 <script lang="ts">
-   import './dot-bg.css'
-   import { Temporal } from '@js-temporal/polyfill'
-   import { ShinyBorder, DualLayerDot, TextRecessed, PanelGlass } from '$lib/index.js'
+   import "./dot-bg.css";
+   import { Temporal } from "@js-temporal/polyfill";
+   import {
+      ShinyBorder,
+      DualLayerDot,
+      TextRecessed,
+      PanelGlass,
+   } from "$lib/index.js";
+   import Avatar from "$lib/components/Avatar.svelte";
 </script>
 
 <ShinyBorder>
@@ -9,15 +15,21 @@
       <TextRecessed>
          <main>
             <div class="card">
-            <PanelGlass tag="article" color="oklch(45% 0 0 / 0.1)">
-               <header>General Kenobi</header>
-               <div>Hello there</div>
-               <footer>{Temporal.Now.zonedDateTimeISO().toLocaleString(undefined, {
-                  dateStyle: 'long',
-                  timeStyle: 'short'
-               })}</footer>
-            </PanelGlass>
+               <PanelGlass tag="article" color="oklch(45% 0 0 / 0.1)">
+                  <header>General Kenobi</header>
+                  <div>Hello there</div>
+                  <footer>
+                     {Temporal.Now.zonedDateTimeISO().toLocaleString(
+                        undefined,
+                        {
+                           dateStyle: "long",
+                           timeStyle: "short",
+                        },
+                     )}
+                  </footer>
+               </PanelGlass>
             </div>
+            <Avatar />
          </main>
       </TextRecessed>
    </DualLayerDot>

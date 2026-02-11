@@ -1,3 +1,4 @@
+export { default as Avatar } from './components/Avatar.svelte'
 export { default as DualLayerDot } from './components/DualLayerDot.svelte'
 export { default as PanelGlass } from './components/PanelGlass.svelte'
 export { default as ShinyBorder } from './components/ShinyBorder.svelte'

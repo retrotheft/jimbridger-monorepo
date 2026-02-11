@@ -4,7 +4,7 @@
    import DiscussionComment from "$lib/components/DiscussionComment.svelte";
    import content from "$lib/assets/bio.md?raw";
    import MarkdownIt from "$lib/components/MarkdownIt.svelte";
-   import { PanelGlass } from "sitekit";
+   import { Avatar, PanelGlass } from "sitekit";
 
    const technologies = ['Typescript', 'Svelte', 'HTML', 'CSS', 'Rust'];
    // const colors = ['#2d69b4', '#f33a1b', '#d6452a', '#2242d1', '#f36541']
@@ -14,6 +14,7 @@
 
    const injectStyles = (color: string) => (node: HTMLElement) => {
       node.textContent = `:root {
+         --color: ${color};
          --_bg-color: oklch(from ${color} 50% .09 h / 1);
          --_hl-color: oklch(from ${color} 80% .16 h / 1);
       }`
@@ -28,6 +29,7 @@
    <section id="header">
       <!-- <PanelGlass tag="article" color="oklch(45% 0 0 / 0.1)"> -->
       <article id="me">
+         <Avatar />
          <h1>Jim Bridger</h1>
          <p>Hypercreative Open-Source Developer</p>
          <ul id="technologies">
@@ -131,5 +133,6 @@
       position: sticky;
       align-self: start;
       top: 5rem;
+      padding-block: 1em;
    }
 </style>
