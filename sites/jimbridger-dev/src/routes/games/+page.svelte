@@ -1,5 +1,6 @@
 <script lang="ts">
-   const games = ['minesweeper', 'snake', 'tetris']
+   import { PanelGlass } from "sitekit";
+   const games = ["minesweeper", "snake", "tetris"];
 </script>
 
 <main id="games">
@@ -25,7 +26,7 @@
 
    li {
       border: 1px solid white;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.5);
    }
 
    a {
@@ -33,5 +34,8 @@
       width: 100%;
       height: 100%;
       padding: 1em;
+   }
+
+   :global(.glass-panel.vt) {
    }
 </style>

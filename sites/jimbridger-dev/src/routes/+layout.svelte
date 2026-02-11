@@ -3,9 +3,10 @@
    import "../app.css";
    import NavHeader from "$lib/components/NavHeader.svelte";
    import { onNavigate } from "$app/navigation";
-   import { ShinyBackground, DualLayerDot, TextRecessed } from "sitekit";
+   import { DualLayerDot, TextRecessed } from "sitekit";
    import { setLayoutContext } from "$lib/contexts/layout";
    import { injectStyles } from "$lib/attachments/inject-styles";
+   import ShinyBackground from "$lib/components/ShinyBackground.svelte";
 
    let { children } = $props();
 

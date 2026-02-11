@@ -1,10 +1,10 @@
 <script lang="ts">
    import { type Snippet } from "svelte"
 
-   let { children, tag = "div" }: { children: Snippet, tag: string } = $props()
+   let { children, tag = "div", color = "oklch(45% 0 0 / 0.1)" }: { children: Snippet, tag: string, color: string } = $props()
 </script>
 
-<svelte:element this={tag} class="glass-panel">
+<svelte:element this={tag} class="glass-panel" style={`--base-color: ${color};`}>
    {@render children?.()}
 </svelte:element>
 

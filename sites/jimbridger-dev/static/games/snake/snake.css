@@ -3,9 +3,11 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /*color-scheme: light dark;*/
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /*background-color: #242424;*/
+  /*background-color: oklch(45% 0.1 0 / 0.5);*/
+  background: transparent;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,11 +25,7 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  display: grid;
 }
 
 h1 {
@@ -42,7 +40,7 @@ h1 {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /*padding: 2rem;*/
   text-align: center;
 }
 
@@ -53,7 +51,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  /*background-color: #1a1a1a;*/
   cursor: pointer;
   transition: border-color 0.25s;
 }

@@ -16,6 +16,10 @@
    min-height: 100vh;
 }*/
 
+:root {
+   --bg-color: rgba(0,0,0,0.6);
+}
+
 body {
    background-color:black;
    color: white;
@@ -23,8 +27,7 @@ body {
    display: grid;
    min-height: 100vh;
    margin: 0;
-   /*position: fixed;*/
-   /*overflow-y: scroll;*/
+   position: relative;
 }
 
 header.page {
@@ -34,6 +37,7 @@ header.page {
    z-index: 1;
    background-color: oklch(30% 0 0 / 0.25);
    backdrop-filter: blur(5px);
+   will-change: backdrop-filter;
    padding-block: 1em;
 }
 
