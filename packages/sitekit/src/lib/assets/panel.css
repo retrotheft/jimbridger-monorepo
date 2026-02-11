@@ -2,6 +2,7 @@
    header {
       padding: var(--_padding, 1em);
       background-color: oklch(15% 0 0 / 0.9);
+      background-color: oklch(from var(--_base-color) 15% 0 0 / 0.9);
       font-weight: bold;
       text-align: center;
    }
@@ -13,6 +14,7 @@
    footer {
       padding: var(--_padding, 1em);
       background-color: oklch(15% 0 0 / 0.5);
+      background-color: oklch(from var(--_base-color) 15% 0 0 / 0.5);
       font-size: 0.75rem;
       font-family: monospace;
    }

@@ -47,9 +47,7 @@
       var(--fine-size) var(--fine-size),
       var(--coarse-size) var(--coarse-size),
       cover;
-    /*border: 1px solid #000;*/
-    /*border-radius: 1em;*/
-    display: grid;
     background-color: rgba(0,0,0,0.2);
+    min-height: 100%;
   }
 </style>

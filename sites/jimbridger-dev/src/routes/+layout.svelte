@@ -3,7 +3,9 @@
    import "../app.css";
    import NavHeader from "$lib/components/NavHeader.svelte";
    import { onNavigate } from "$app/navigation";
-   import { ShinyBorder, DualLayerDot, TextRecessed } from "sitekit";
+   import { ShinyBackground, DualLayerDot, TextRecessed } from "sitekit";
+   import { setLayoutContext } from "$lib/contexts/layout";
+   import { injectStyles } from "$lib/attachments/inject-styles";
 
    let { children } = $props();
 
@@ -17,13 +19,17 @@
          });
       });
    });
+
+   let color = $state('#2d69b4')
+
+   setLayoutContext({
+      setColor: (c: string) => color = c
+   })
 </script>
 
-<svelte:head>
-   <link rel="icon" href={favicon} />
-</svelte:head>
+<!-- <svelte:head> located at bottom of file -->
 
-<ShinyBorder>
+<ShinyBackground>
    <DualLayerDot>
       <TextRecessed>
          <header class="page">
@@ -33,4 +39,10 @@
          {@render children()}
       </TextRecessed>
    </DualLayerDot>
-</ShinyBorder>
+</ShinyBackground>
+
+<!-- this lives down the bottom because it screws with the syntax highlighting -->
+<svelte:head>
+   <link rel="icon" href={favicon} />
+   <style {@attach injectStyles(color)}></style>
+</svelte:head>

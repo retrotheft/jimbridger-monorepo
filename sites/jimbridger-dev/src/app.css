@@ -112,7 +112,7 @@ main#home ol#activity-feed {
    }
 }
 
-/*main#home ol#activity-feed li:nth-child(n + 6) {
+/*main#home ol#activity-feed li:nth-child(n + 3) {
    display: none;
 }*/
 
@@ -158,4 +158,8 @@ article#me .markdown ul {
       right: 102%;
 
    }
+}
+
+.glass-panel {
+   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
 }
