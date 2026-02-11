@@ -4228,6 +4228,7 @@ var Snake = (function() {
           break;
       }
     }
+    user_effect(() => window.parent.postMessage({ type: "reggie-game-state", data: { score: get(score) } }));
     var fragment = root();
     head("1n46o8q", ($$anchor2) => {
       var link2 = root_1();

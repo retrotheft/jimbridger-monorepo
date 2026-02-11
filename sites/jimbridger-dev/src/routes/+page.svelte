@@ -92,12 +92,8 @@
       color: white;
    }
 
-   section#blurb, section#projects {
+   section#blurb {
       max-width: 32ch;
-   }
-
-   section#projects {
-
    }
 
    section#socials {

@@ -5,14 +5,22 @@
    const name = page.params.name
 
    const html = $derived(getHtml(name!))
+
+   const onmessage = (event: MessageEvent) => {
+      gameState = event.data.data
+   }
+
+   let gameState = $state.raw({})
 </script>
+
+<svelte:window {onmessage} />
 
 <main id="games">
    <div class="game-window" style="view-transition-name: game-{name};">
       <header>
          <a href="/games">Back to Games</a>
          <span>{name}</span>
-         <span></span>
+         <span>{#each Object.entries(gameState) as [key, value]}{key}: {value}{/each}</span>
       </header>
       <!-- svelte-ignore a11y_autofocus -->
       <iframe
@@ -61,10 +69,13 @@
 
          span {
             text-transform: uppercase;
+            font-weight: 800;
+            font-size: 1.1rem;
          }
 
          span:last-child {
             font-size: 0.9rem;
+            text-align: right;
          }
       }
 
