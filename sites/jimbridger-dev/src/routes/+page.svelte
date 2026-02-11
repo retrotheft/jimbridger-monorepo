@@ -4,7 +4,7 @@
    import DiscussionComment from "$lib/components/DiscussionComment.svelte";
    import content from "$lib/assets/bio.md?raw";
    import MarkdownIt from "$lib/components/MarkdownIt.svelte";
-   import { Avatar, PanelGlass } from "sitekit";
+   import { Avatar, PanelGlass, SponsoredByEpicenter } from "sitekit";
 
    const technologies = ['Typescript', 'Svelte', 'HTML', 'CSS', 'Rust'];
    // const colors = ['#2d69b4', '#f33a1b', '#d6452a', '#2242d1', '#f36541']
@@ -39,10 +39,13 @@
                </PanelGlass>
             {/each}
          </ul>
-         <h2>Sponsored by</h2>
+         <!-- <h2>Sponsored by</h2>
          <ul id="sponsors">
             <li>Epicenter</li>
-         </ul>
+         </ul> -->
+         <div id="sponsor">
+            <SponsoredByEpicenter />
+         </div>
          <section id="blurb">
             <!-- This is my voice on tv! -->
             <MarkdownIt {content} />
@@ -134,5 +137,11 @@
       align-self: start;
       top: 5rem;
       padding-block: 1em;
+   }
+
+   div#sponsor {
+      padding-block: 3em;
+      display: flex;
+      /*justify-content: flex-end;*/
    }
 </style>

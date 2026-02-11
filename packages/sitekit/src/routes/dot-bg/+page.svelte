@@ -8,6 +8,7 @@
       PanelGlass,
    } from "$lib/index.js";
    import Avatar from "$lib/components/Avatar.svelte";
+   import SponsoredByEpicenter from "$lib/components/SponsoredByEpicenter.svelte";
 </script>
 
 <ShinyBorder>
@@ -30,6 +31,7 @@
                </PanelGlass>
             </div>
             <Avatar />
+            <SponsoredByEpicenter />
          </main>
       </TextRecessed>
    </DualLayerDot>
