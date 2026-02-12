@@ -9,6 +9,10 @@ importers:
   .: {}
 
   packages/sitekit:
+    dependencies:
+      svelte-mainloop:
+        specifier: ^1.2.2
+        version: 1.2.2(svelte@5.50.0)
     devDependencies:
       '@js-temporal/polyfill':
         specifier: ^0.5.1
@@ -939,6 +943,13 @@ packages:
     resolution: {integrity: sha512-DKKrynuQRne0PNpEbzuEdHlYOMksHSUI8Zc9Unei5gTsMNA2/vMpoMz/yKba50pejK56qj98qM0SjYxAKi13gQ==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
+  highlight.js@11.11.1:
+    resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
+    engines: {node: '>=12.0.0'}
+
+  highlightjs-svelte@1.0.6:
+    resolution: {integrity: sha512-aXuBPz8df3sOXg90q8rRcBLyxIR8ozPU39a6tJ2rpJUjjd9brRIr55aC0IccW4gsPhQxZ+B3rFugdXsg9/ckDw==}
+
   is-reference@3.0.3:
     resolution: {integrity: sha512-ixkJoqQvAP88E6wLydLGGqCJsrFUnqoH6HnaczB8XmDH1oaWU+xxdptvikTgaEhtZ53Ky6YXiBuUI2WXLMCwjw==}
 
@@ -1081,6 +1092,11 @@ packages:
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
+
+  svelte-mainloop@1.2.2:
+    resolution: {integrity: sha512-cAjl/MYBk+7mkzxt5Y2HKvYu/8MnAul223Qcjq+e4iK5WxLKWj5Iu8tt4sJ3mlkAZRL6R9mOOQSn6fWY10i4Ag==}
+    peerDependencies:
+      svelte: ^5.0.0
 
   svelte2tsx@0.7.46:
     resolution: {integrity: sha512-S++Vw3w47a8rBuhbz4JK0fcGea8tOoX1boT53Aib8+oUO2EKeOG+geXprJVTDfBlvR+IJdf3jIpR2RGwT6paQA==}
@@ -1861,6 +1877,10 @@ snapshots:
 
   graphql@16.12.0: {}
 
+  highlight.js@11.11.1: {}
+
+  highlightjs-svelte@1.0.6: {}
+
   is-reference@3.0.3:
     dependencies:
       '@types/estree': 1.0.8
@@ -2049,6 +2069,12 @@ snapshots:
       typescript: 5.9.3
     transitivePeerDependencies:
       - picomatch
+
+  svelte-mainloop@1.2.2(svelte@5.50.0):
+    dependencies:
+      highlight.js: 11.11.1
+      highlightjs-svelte: 1.0.6
+      svelte: 5.50.0
 
   svelte2tsx@0.7.46(svelte@5.50.0)(typescript@5.9.3):
     dependencies:

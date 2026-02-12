@@ -7,6 +7,9 @@
    import { setLayoutContext } from "$lib/contexts/layout";
    import { injectStyles } from "$lib/attachments/inject-styles";
    import ShinyBackground from "$lib/components/ShinyBackground.svelte";
+   import ShinyBorder from "$lib/components/ShinyBorder.svelte";
+   import DotInlineSVG from "$lib/components/DotInlineSVG.svelte";
+   import DotPNG from "$lib/components/DotPNG.svelte";
 
    let { children } = $props();
 
@@ -35,12 +38,15 @@
    }
 </script>
 
-<svelte:window {onresize} />
+<!-- <svelte:window {onresize} /> -->
 
 <!-- <svelte:head> located at bottom of file -->
 
-<ShinyBackground>
-   <DualLayerDot>
+<ShinyBorder>
+<!-- <ShinyBackground> -->
+   <!-- <DualLayerDot> -->
+      <!-- <DotInlineSVG> -->
+      <DotPNG>
       <TextRecessed>
          <header class="page">
             <NavHeader />
@@ -48,9 +54,11 @@
 
          {@render children()}
       </TextRecessed>
-   </DualLayerDot>
-</ShinyBackground>
-
+      </DotPNG>
+      <!-- </DotInlineSVG> -->
+   <!-- </DualLayerDot> -->
+<!-- </ShinyBackground> -->
+</ShinyBorder>
 <!-- this lives down the bottom because it screws with the syntax highlighting -->
 <svelte:head>
    <link rel="preconnect" href="https://fonts.googleapis.com">

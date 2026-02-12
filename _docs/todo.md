@@ -1,15 +1,5 @@
 # Todo
 
-## Reggie
-
-- [x] Refactor `reggie` to `reggie-monorepo`
-- [x] build `Tetris`, `Minesweeper` and `Snake` as SPAs using Reggie
-- [x] finalise games location (has to be public repo, so site monorepo probs best)
-- [ ] finalise game css build technique
-
-## GitHub API
-
-- [x] Write github api library
-   - [x] discussions
-- [ ] ship site!
-
+- [ ] fix background linear gradient to look like sitekit
+- [ ] write remote function to get github stars and commits (maybe the same query?)
+- [ ] clean up old unused components in Sitekit

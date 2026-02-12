@@ -57,12 +57,13 @@
          <ol id="activity-feed">
             <svelte:boundary>
                {#each await cache({ getActivityFeed }, { username: "retrotheft", discussionNum: 3 }) as comment}
+               <!-- {#each await getActivityFeed({ username: "retrotheft", discussionNum: 3 }) as comment} -->
                   <PanelGlass tag="li">
                      <DiscussionComment {comment} />
                   </PanelGlass>
                {/each}
                {#snippet pending()}
-                  <p>Loading articles from Dev.to...</p>
+                  <p>Loading activity feed</p>
                {/snippet}
                {#snippet failed()}
                   <p>An unknown error occurred. (Library)</p>

@@ -45,5 +45,7 @@
          cover;
       background-color: var(--_bg-color);
       min-height: 100%;
+      will-change: transform; /* improves safari scroll painting flash */
+      display: grid;
    }
 </style>

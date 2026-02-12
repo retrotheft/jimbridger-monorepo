@@ -44,5 +44,8 @@
 	},
 	"keywords": [
 		"svelte"
-	]
+	],
+	"dependencies": {
+		"svelte-mainloop": "^1.2.2"
+	}
 }

@@ -189,4 +189,6 @@ article#me .markdown ul {
 
 .glass-panel {
    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+   content-visibility: auto;
+   backdrop-filter: none !important;
 }

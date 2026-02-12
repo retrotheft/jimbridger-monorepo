@@ -8,6 +8,8 @@
 
 <style>
    div {
+      display: grid;
+      grid-template-rows: auto 1fr;
       font-family: 'Nunito Sans';
       line-height: 1.3rem;
       letter-spacing: 0.05em;

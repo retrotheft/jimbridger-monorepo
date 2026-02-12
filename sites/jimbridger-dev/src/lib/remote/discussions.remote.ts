@@ -39,6 +39,7 @@ export const getActivityFeed = query(
       const kv = getRequestEvent().platform!.env.CACHE
 
       const cached = await kv.get('github:activity-feed')
+
       if (cached) return JSON.parse(cached)
 
       const data = await client.request(GET_DISCUSSION, {
@@ -47,9 +48,10 @@ export const getActivityFeed = query(
          number: discussionNum
       });
 
+      const comments = data.repository.discussion.comments.nodes.reverse() || [];
 
-      kv.put('github:activity-feed', JSON.stringify(data), { expirationTtl: 60 })
+      kv.put('github:activity-feed', JSON.stringify(comments), { expirationTtl: 60 })
 
-      return data.repository.discussion.comments.nodes.reverse() || [];
+      return comments;
    }
 );
