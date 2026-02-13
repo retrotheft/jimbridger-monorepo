@@ -19,22 +19,12 @@
          stateObject[field] = initialObj[field] ?? ''
       })
    })
-
-   function updateStateObject(field: string, value: string) {
-      stateObject[field] = value
-   }
-
-   $inspect(stateObject)
-
-   $effect(() => {
-      console.log("CHECK", JSON.stringify(stateObject) === initialValue)
-   })
 </script>
 
 <!-- <button onclick={updateSheetMeta}>Update Sheet Meta</button> -->
 
 <ol class="row">
-   {key}
+   <span>{row}</span>
    {#each fields as field}
       <li class:unsaved={JSON.stringify(stateObject) !== initialValue}>
          <Cell {row} {field} bind:value={stateObject[field]} />
@@ -48,6 +38,7 @@
    ol {
       padding-inline-start: 0;
       display: flex;
+      align-items: center;
    }
 
    li {
@@ -57,5 +48,9 @@
 
    li.unsaved {
       border: 1px solid lightcoral;
+   }
+
+   span {
+      margin-right: 1em;
    }
 </style>

@@ -15,7 +15,7 @@
    const listKeysQuery = $derived(listKeys(sheet))
    const getValuesQuery = $derived(getValues(rows.map(row => `${sheet}:${row}`)))
 
-   const currentValues = $derived(await getValuesQuery)
+   const currentValues = $derived(getValuesQuery.current)
 
    function buildRows(length: number) {
       return Array.from({ length }, (_,i) => `${i + 1}`)
@@ -52,13 +52,13 @@
 
 <button onclick={addRow}>Add Row</button>
 
-<ul>
+<ul>getValues
    {#each currentValues as { key, value }}
       <li>{key}: {value}</li>
    {/each}
 </ul>
 
-<ul>
+<ul>listKeys
    {#each await listKeysQuery as { name, key }}
       <li>{name}</li>
    {/each}

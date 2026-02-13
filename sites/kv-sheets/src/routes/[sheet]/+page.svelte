@@ -1,13 +1,22 @@
 <script lang="ts">
-   import { getValue } from '$lib/kv.remote'
+   import { getValue, putValue } from '$lib/kv.remote'
    import Sheet from '$lib/components/Sheet.svelte';
+   import { page } from '$app/state'
+   import { onMount } from 'svelte'
 
-   const sheet = "test-sheet"
+   const sheet = page.params.sheet
 
    const sheetMetaQuery = getValue(sheet)
    const sheetMeta = $derived(await sheetMetaQuery)
 
    const refresh = () => sheetMetaQuery.refresh()
+
+   onMount(async () =>{
+      const meta = await sheetMetaQuery
+      console.log("META", meta)
+      if (!meta) await putValue({ key: `${sheet}`, value: { rowCount: 1, fields: ['field-1'] }})
+      refresh()
+   })
 </script>
 
 <svelte:boundary>
