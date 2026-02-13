@@ -1,0 +1,5 @@
+body {
+   background: oklch(25% .03 240);
+   color: white;
+   font-family: system-ui;
+}

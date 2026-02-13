@@ -1,27 +1,40 @@
 <!-- src/routes/kv-test/+page.svelte -->
 <script>
+	import { getValue, listKeys, putValue, deleteValue } from '$lib/kv.remote';
+
 	let key = $state('test:hello');
 	let value = $state('world');
-	let result = $state('');
+	let readResult = $state('');
+
+	const query = listKeys('')
 
 	async function write() {
-		const res = await fetch('/api/kv-test', {
-			method: 'POST',
-			headers: { 'content-type': 'application/json' },
-			body: JSON.stringify({ key, value })
-		});
-		result = JSON.stringify(await res.json(), null, 2);
+		await putValue({ key, value });
+		readResult = 'Written!';
+		query.refresh()
 	}
 
 	async function read() {
-		const res = await fetch('/api/kv-test');
-		result = JSON.stringify(await res.json(), null, 2);
+		const result = await getValue(key);
+		readResult = JSON.stringify(result, null, 2);
+	}
+
+	async function remove() {
+		await deleteValue(key);
+		readResult = 'Deleted!';
+		query.refresh()
 	}
 </script>
 
 <input bind:value={key} placeholder="key" />
 <input bind:value={value} placeholder="value" />
 <button onclick={write}>Write</button>
-<button onclick={read}>List keys</button>
+<button onclick={read}>Read</button>
+<button onclick={remove}>Delete</button>
 
-<pre>{result}</pre>
+<pre>{readResult}</pre>
+
+<h3>All keys</h3>
+{#each await query as item}
+	<div>{item.name}</div>
+{/each}

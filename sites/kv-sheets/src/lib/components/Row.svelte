@@ -1,0 +1,48 @@
+<script lang="ts">
+   import Cell from "./Cell.svelte";
+   import { onMount } from "svelte";
+
+   let { sheet, row, fields, callback, initialValue }: { sheet: string, row: string, fields: string[], callback: (key: string, value: string) => void, initialValue: string | undefined } = $props()
+
+   const key = $derived(`${sheet}:${row}`)
+
+   const stateObject = $state<Record<string, string>>({})
+
+   function save() {
+      const value = JSON.stringify(stateObject)
+      callback(key, value)
+   }
+
+   onMount(() => {
+      const initialObj = JSON.parse(initialValue ?? '{}')
+      console.log(initialObj)
+      console.log(initialValue)
+      fields.forEach(field => {
+         stateObject[field] = initialObj[field] ?? ''
+      })
+   })
+
+   function updateStateObject(field: string, value: string) {
+      stateObject[field] = value
+   }
+</script>
+
+<ol class="row">
+   {key}
+   {#each fields as field}
+      <li><Cell {row} {field} bind:value={stateObject[field]} /></li>
+   {/each}
+   <button onclick={save}>Save</button>
+   {JSON.stringify(stateObject)}
+</ol>
+
+<style>
+   ol {
+      padding-inline-start: 0;
+      display: flex;
+   }
+
+   li {
+      list-style-type: none;
+   }
+</style>
