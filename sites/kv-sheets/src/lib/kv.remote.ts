@@ -17,7 +17,7 @@ export const getValue = query(z.string(), async (key) => {
 
 export const getValues = query(z.array(z.string()).max(100), async (keys) => {
 	const kv = getKV();
-	const result = await kv.get(keys, 'json');
+   const result = await kv.get(keys, 'json');
 	return keys.map((key) => ({ key, value: result.get(key) ?? null })) as Record<string, string>[];
 });
 

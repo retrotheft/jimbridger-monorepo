@@ -15,8 +15,6 @@
 
    onMount(() => {
       const initialObj = JSON.parse(initialValue ?? '{}')
-      console.log(initialObj)
-      console.log(initialValue)
       fields.forEach(field => {
          stateObject[field] = initialObj[field] ?? ''
       })
@@ -26,6 +24,8 @@
       stateObject[field] = value
    }
 </script>
+
+<!-- <button onclick={updateSheetMeta}>Update Sheet Meta</button> -->
 
 <ol class="row">
    {key}
