@@ -1,6 +1,7 @@
 <script lang="ts">
    import { putValue, getValues, listKeys } from '$lib/kv.remote'
-   import Row from '$lib/components/Row.svelte'
+   import Row from './Row.svelte'
+   import Fields from './Fields.svelte'
 
    type SheetMeta = {
       rowCount: number,
@@ -33,6 +34,12 @@
       listKeysQuery.refresh()
    }
 
+   async function updateFields(fields: string[]) {
+      await putValue({ key: `${sheet}`, value: { rowCount: rows.length, fields }})
+      listKeysQuery.refresh()
+      refresh()
+   }
+
    async function addRow() {
       // update sheet meta
       await putValue({ key: `${sheet}`, value: { rowCount: rows.length + 1, fields }})
@@ -41,14 +48,17 @@
 </script>
 
 {sheet}: {JSON.stringify(sheetMeta)}
+<Fields callback={updateFields} />
 
-{#if getValuesQuery.current}
-   {#each rows as row}
-      <Row {sheet} {row} {fields} callback={saveKVPair} initialValue={currentValues?.find(el => el.key === `${sheet}:${row}`)?.value} />
-   {/each}
-{:else}
-   Loading getValuesQuery...
-{/if}
+<!-- {#key sheetMeta && fields} -->
+   {#if getValuesQuery.current}
+      {#each rows as row}
+         <Row {sheet} {row} {fields} callback={saveKVPair} initialValue={currentValues?.find(el => el.key === `${sheet}:${row}`)?.value} />
+      {/each}
+   {:else}
+      Loading getValuesQuery...
+   {/if}
+<!-- {/key} -->
 
 <button onclick={addRow}>Add Row</button>
 

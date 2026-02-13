@@ -15,6 +15,7 @@
 
    onMount(() => {
       const initialObj = JSON.parse(initialValue ?? '{}')
+      console.log(fields)
       fields.forEach(field => {
          stateObject[field] = initialObj[field] ?? ''
       })
@@ -27,7 +28,7 @@
    <span>{row}</span>
    {#each fields as field}
       <li class:unsaved={JSON.stringify(stateObject) !== initialValue}>
-         <Cell {row} {field} bind:value={stateObject[field]} />
+         <Cell {row} {field} bind:value={stateObject[field]} callback={save} />
       </li>
    {/each}
    <button onclick={save}>Save</button>

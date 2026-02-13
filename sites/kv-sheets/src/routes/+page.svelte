@@ -25,6 +25,12 @@
 		query.refresh()
 	}
 
+	async function deleteKey(k: string) {
+   	await deleteValue(k);
+   	readResult = 'Deleted!';
+   	query.refresh()
+	}
+
 	const queryResult = $derived(query.current)
 	const sheets = $derived(queryResult?.filter((el: { name: string }) => !el.name.includes(":")) ?? [])
 
@@ -43,12 +49,14 @@
 
 <h3>All keys</h3>
 {#each await query as item}
-	<div>{item.name}</div>
+	<div><button onclick={() => deleteKey(item.name)}>Delete</button>{item.name} </div>
 {/each}
 
 <h3>Sheets Only</h3>
 <ul>
 {#each sheets as sheet}
-   <li><a href={`/${sheet.name}`}>{sheet.name}</a></li>
+   <li>
+      <a href={`/${sheet.name}`}>{sheet.name}</a>
+   </li>
 {/each}
 </ul>
