@@ -3,3 +3,7 @@ body {
    color: white;
    font-family: system-ui;
 }
+
+a, a:visited {
+   color: lightgreen;
+}

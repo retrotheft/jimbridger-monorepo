@@ -1,5 +1,5 @@
 <!-- src/routes/kv-test/+page.svelte -->
-<script>
+<script lang="ts">
 	import { getValue, listKeys, putValue, deleteValue } from '$lib/kv.remote';
 
 	let key = $state('test:hello');
@@ -24,6 +24,13 @@
 		readResult = 'Deleted!';
 		query.refresh()
 	}
+
+	const queryResult = $derived(query.current)
+	const sheets = $derived(queryResult?.filter((el: { name: string }) => !el.name.includes(":")) ?? [])
+
+	$effect(() => {
+   	console.log(queryResult)
+	})
 </script>
 
 <input bind:value={key} placeholder="key" />
@@ -38,3 +45,10 @@
 {#each await query as item}
 	<div>{item.name}</div>
 {/each}
+
+<h3>Sheets Only</h3>
+<ul>
+{#each sheets as sheet}
+   <li><a href={`/${sheet.name}`}>{sheet.name}</a></li>
+{/each}
+</ul>
