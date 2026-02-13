@@ -48,7 +48,7 @@
 </script>
 
 {sheet}: {JSON.stringify(sheetMeta)}
-<Fields callback={updateFields} />
+<Fields callback={updateFields} currentValue={sheetMeta.fields} />
 
 <!-- {#key sheetMeta && fields} -->
    {#if getValuesQuery.current}

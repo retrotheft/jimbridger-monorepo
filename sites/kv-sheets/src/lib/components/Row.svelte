@@ -1,23 +1,28 @@
 <script lang="ts">
    import Cell from "./Cell.svelte";
-   import { onMount } from "svelte";
+   import { untrack } from "svelte";
 
    let { sheet, row, fields, callback, initialValue }: { sheet: string, row: string, fields: string[], callback: (key: string, value: string) => void, initialValue: string | undefined } = $props()
 
    const key = $derived(`${sheet}:${row}`)
 
-   const stateObject = $state<Record<string, string>>({})
+   let stateObject = $state<Record<string, string>>({})
 
    function save() {
       const value = JSON.stringify(stateObject)
       callback(key, value)
    }
 
-   onMount(() => {
+   $effect(() => {
       const initialObj = JSON.parse(initialValue ?? '{}')
-      console.log(fields)
       fields.forEach(field => {
          stateObject[field] = initialObj[field] ?? ''
+      })
+      // clean up any deleted fields
+      untrack(() => {
+         for (const key of Object.keys(stateObject)) {
+            if (!fields.includes(key)) delete stateObject[key]
+         }
       })
    })
 </script>

@@ -33,10 +33,6 @@
 
 	const queryResult = $derived(query.current)
 	const sheets = $derived(queryResult?.filter((el: { name: string }) => !el.name.includes(":")) ?? [])
-
-	$effect(() => {
-   	console.log(queryResult)
-	})
 </script>
 
 <input bind:value={key} placeholder="key" />

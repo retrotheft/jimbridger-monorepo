@@ -13,7 +13,6 @@
 
    onMount(async () =>{
       const meta = await sheetMetaQuery
-      console.log("META", meta)
       if (!meta) await putValue({ key: `${sheet}`, value: { rowCount: 1, fields: ['field-1'] }})
       refresh()
    })
