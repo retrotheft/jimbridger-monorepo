@@ -21,6 +21,18 @@ export const getValues = query(z.array(z.string()).max(100), async (keys) => {
 	return keys.map((key) => ({ key, value: result.get(key) ?? null })) as Record<string, string>[];
 });
 
+export const getValueWithMetadata = query(z.string(), async (key) => {
+	const kv = getKV();
+	const value = await kv.getWithMetadata(key);
+   return value;
+});
+
+export const getValuesWithMetadata = query(z.array(z.string()).max(100), async (keys) => {
+	const kv = getKV();
+   const result = await kv.getWithMetadata(keys, 'json');
+	return keys.map((key) => ({ key, value: result.get(key) ?? null })) as Record<string, string>[];
+});
+
 export const listKeys = query(
 	z.string().optional(),
 	async (prefix) => {
@@ -38,6 +50,19 @@ export const putValue = command(
 	async ({ key, value }) => {
 		const kv = getKV();
 		await kv.put(key, JSON.stringify(value));
+	}
+);
+
+export const putValueWithMetadata = command(
+   z.object({
+      key: z.string().min(1),
+      value: z.unknown(),
+      metadata: z.record(z.string(), z.unknown())
+   }),
+   async ({ key, value, metadata }) => {
+      const kv = getKV();
+      console.log({ key, value, metadata });
+      await kv.put(key, value, { metadata });
 	}
 );
 
