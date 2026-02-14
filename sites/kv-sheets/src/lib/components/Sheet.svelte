@@ -10,7 +10,7 @@
 
    let { sheet, sheetMeta, refresh }: { sheet: string; sheetMeta: SheetMeta, refresh: () => void } = $props();
 
-   let rows = $derived(buildRows(sheetMeta.rowCount))
+   const rows = $derived(buildRows(sheetMeta.rowCount))
    const fields = $derived(sheetMeta.fields)
 
    const listKeysQuery = $derived(listKeys(sheet))
@@ -21,7 +21,6 @@
    function buildRows(length: number) {
       return Array.from({ length }, (_,i) => `${i + 1}`)
    }
-
 
    async function saveKVPair(key: string, value: string) {
       await putValue({ key, value })
@@ -48,17 +47,19 @@
 </script>
 
 {sheet}: {JSON.stringify(sheetMeta)}
-<Fields callback={updateFields} currentValue={sheetMeta.fields} />
+{#if sheetMeta?.fields}
+   <Fields callback={updateFields} currentValue={sheetMeta.fields} />
+{/if}
 
-<!-- {#key sheetMeta && fields} -->
-   {#if getValuesQuery.current}
-      {#each rows as row}
-         <Row {sheet} {row} {fields} callback={saveKVPair} initialValue={currentValues?.find(el => el.key === `${sheet}:${row}`)?.value} />
-      {/each}
-   {:else}
-      Loading getValuesQuery...
-   {/if}
-<!-- {/key} -->
+<!-- No idea why this specific sheetMeta?.fields check needs to be here, but for new sheets, fields is undefined in Row if not. -->
+<!-- And for some reason, wrapping this entire block in a separate check doesn't fix the error. ¯\_(ツ)_/¯ -->
+{#if getValuesQuery.current && sheetMeta?.fields}
+   {#each rows as row}
+      <Row {sheet} {row} {fields} callback={saveKVPair} initialValue={currentValues?.find(el => el.key === `${sheet}:${row}`)?.value} />
+   {/each}
+{:else}
+   Loading getValuesQuery...
+{/if}
 
 <button onclick={addRow}>Add Row</button>
 

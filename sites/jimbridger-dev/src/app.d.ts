@@ -9,6 +9,7 @@ declare global {
       interface Platform {
          env: {
             CACHE: KVNamespace;
+            KV_SHEETS: KVNamespace;
          }
 		}
 	}

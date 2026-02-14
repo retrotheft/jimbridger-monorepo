@@ -4,7 +4,7 @@
    import { page } from '$app/state'
    import { onMount } from 'svelte'
 
-   const sheet = page.params.sheet
+   const sheet = page.params.sheet!
 
    const sheetMetaQuery = getValue(sheet)
    const sheetMeta = $derived(await sheetMetaQuery)
@@ -18,17 +18,8 @@
    })
 </script>
 
-<svelte:boundary>
-   {#if sheetMeta}
-      <Sheet {sheet} {sheetMeta} {refresh} />
-   {:else}
-      Loading Sheet Meta...
-   {/if}
-
-   {#snippet pending()}
-      Pending...
-   {/snippet}
-   {#snippet failed()}
-      Failed...
-   {/snippet}
-</svelte:boundary>
+{#if sheetMeta}
+   <Sheet {sheet} {sheetMeta} {refresh} />
+{:else}
+   Loading Sheet Meta...
+{/if}
