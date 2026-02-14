@@ -1,24 +1,46 @@
 <script lang="ts">
-   // write an improved Sheet that stores all data in the one KV pair
-   // it should store field names and types in the KV metadata
 
-   import { putValueWithMetadata, getValueWithMetadata } from "$lib/kv.remote";
+   let { testCSV } = $props()
 
-   async function createKVWithMetadata() {
-      const result = await putValueWithMetadata({ key: 'test-csv', value: 'alice,23\nbob,22\ncharlie,19', metadata: { fields: ['name', 'age']}});
-      console.log(result)
-   }
-
-   const testCSVQuery = getValueWithMetadata("test-csv")
-   const testCSV = $derived(await testCSVQuery)
-
+   const metadata = $derived(testCSV?.metadata ?? { fields: [] })
    const rows = $derived(testCSV?.value.split('\n') ?? [])
-</script>
 
-<button onclick={() => createKVWithMetadata()}>Create Test CSV</button>
+   $inspect(testCSV)
+</script>
 
 <ol>
    {#each rows as row}
       <li>{row}</li>
    {/each}
 </ol>
+
+<table>
+   <thead>
+      <tr>
+         {#each metadata.fields as field}
+            <th>{field}</th>
+         {/each}
+      </tr>
+   </thead>
+   <tbody>
+      {#each rows as row}
+         <tr>
+            {#each row.split(',') as value}
+               <td><input type="text" {value} /></td>
+            {/each}
+         </tr>
+      {/each}
+   </tbody>
+</table>
+
+<style>
+   td, th {
+      background-color: oklch(75% 0 0 / 0.25);
+   }
+
+   input {
+      all: unset;
+      background-color: oklch(0 0 0 / 0.75);
+      padding: 0.5em;
+   }
+</style>

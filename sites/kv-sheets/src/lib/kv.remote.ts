@@ -61,8 +61,7 @@ export const putValueWithMetadata = command(
    }),
    async ({ key, value, metadata }) => {
       const kv = getKV();
-      console.log({ key, value, metadata });
-      await kv.put(key, value, { metadata });
+      return kv.put(key, value, { metadata });
 	}
 );
 
