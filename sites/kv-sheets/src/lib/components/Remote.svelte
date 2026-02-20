@@ -3,10 +3,11 @@
    import type { Metadata } from "$lib/types";
    import type { Snippet } from "svelte";
    import { type Sheet } from "$lib/classes/Sheet.svelte";
+   import { RS, US } from '$lib/constants'
 
    let { children, current, save }: { children: Snippet; current: { value: string, metadata: Metadata}, save: (sheet: Sheet) => void } = $props();
 
-   const remoteSheet = $derived(current?.value?.split("\n").map((r) => r?.split(",")) ?? null);
+   const remoteSheet = $derived(current?.value?.split(RS).map((r) => r?.split(US)) ?? null);
 
    function compare(r: number, c: number, value: string): boolean {
       return remoteSheet?.[r]?.[c] !== value;

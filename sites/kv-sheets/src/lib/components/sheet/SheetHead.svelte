@@ -28,7 +28,7 @@
                <input type="text" bind:value={fields[index]} {onkeydown} />
                <button onclick={() => sheet.removeField(index)}>x</button>
             {:else}
-               {field}
+               {field}<button onclick={() => sheet.sort(index)}>sort</button>
             {/if}
          </th>
       {/each}

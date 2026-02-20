@@ -60,7 +60,6 @@ export const putValueWithMetadata = command(
       metadata: z.record(z.string(), z.unknown())
    }),
    async ({ key, value, metadata }) => {
-      console.log("Saving", key, value, metadata)
       const kv = getKV();
       return kv.put(key, value, { metadata });
 	}

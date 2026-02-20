@@ -1,4 +1,5 @@
 import type { Metadata, SheetInitialValue } from "$lib/types"
+import { RS, US } from '$lib/constants'
 
 const defaultInitialValue: SheetInitialValue = {
    value: '',
@@ -15,6 +16,10 @@ export class Sheet {
       const initial = local ?? remote ?? defaultInitialValue
       this.data = Sheet.dataFromCsv(initial.value)
       this.metadata = initial.metadata
+   }
+
+   sort(c: number, direction?: 'asc' | 'desc') {
+      this.data.sort((row1, row2) => row1[c].localeCompare(row2[c]))
    }
 
    addRow() {
@@ -63,10 +68,10 @@ export class Sheet {
    }
 
    static dataFromCsv(csv: string) {
-      return csv.split('\n').map(r => r.split(','))
+      return csv.split(RS).map(r => r.split(US))
    }
 
    static csvFromData(data: string[][]) {
-      return data.map(r => r.join(',')).join('\n')
+      return data.map(r => r.join(US)).join(RS)
    }
 }
