@@ -22,6 +22,7 @@
       Pending...
    {/snippet}
    {#snippet failed(error, reset)}
+      {@const log = console.error(error)}
       An unexpected error occurred. {error}
       <button onclick={reset}>Try again</button>
    {/snippet}

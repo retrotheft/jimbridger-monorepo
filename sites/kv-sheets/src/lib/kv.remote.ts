@@ -11,7 +11,7 @@ function getKV() {
 
 export const getValue = query(z.string(), async (key) => {
 	const kv = getKV();
-	const value = await kv.get(key);
+   const value = await kv.get(key);
 	return value ? JSON.parse(value) : null;
 });
 
@@ -23,7 +23,7 @@ export const getValues = query(z.array(z.string()).max(100), async (keys) => {
 
 export const getValueWithMetadata = query(z.string(), async (key) => {
 	const kv = getKV();
-	const value = await kv.getWithMetadata(key);
+   const value = await kv.getWithMetadata(key);
    return value;
 });
 
@@ -60,6 +60,7 @@ export const putValueWithMetadata = command(
       metadata: z.record(z.string(), z.unknown())
    }),
    async ({ key, value, metadata }) => {
+      console.log("Saving", key, value, metadata)
       const kv = getKV();
       return kv.put(key, value, { metadata });
 	}
