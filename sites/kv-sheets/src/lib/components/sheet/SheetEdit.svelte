@@ -13,11 +13,6 @@
 
    // svelte-ignore state_referenced_locally -- only want initial key
    const sheet = new Sheet(key, local, remote)
-
-   // don't need any local state: metadata, fields, workingCopy, already handled with Sheet.
-   // don't need constructFields, constructWorkingCopy, convertWorkingCopyToString
-   // do need addRow, removeRow, but we can add to Sheet
-   // updatefields, removeField, also add to Sheet
 </script>
 
 <button onclick={() => console.log(sheet.snapshot)}>Log Sheet</button>

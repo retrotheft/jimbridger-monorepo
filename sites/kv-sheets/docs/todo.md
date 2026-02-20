@@ -7,7 +7,7 @@
    - [x] styling
    - [x] comparison
    - [x] save remote: pass save function to `Remote.svelte`, provide via context
-- [ ] delete unused files
+- [x] delete unused files
 - [ ] create new sheet on empty navigation
 
 ---
@@ -23,4 +23,4 @@
 - Local
 - Sheet.svelte.ts
 - everything in `components/Sheet`
-- 
+-
