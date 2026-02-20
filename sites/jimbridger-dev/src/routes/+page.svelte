@@ -95,6 +95,7 @@
 
    section#blurb {
       max-width: 32ch;
+      font-weight: 300;
    }
 
    section#socials {
