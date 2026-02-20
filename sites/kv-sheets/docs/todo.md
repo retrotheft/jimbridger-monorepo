@@ -9,6 +9,7 @@
    - [x] save remote: pass save function to `Remote.svelte`, provide via context
 - [x] delete unused files
 - [x] create new sheet on empty navigation
+- [x] check for ui feedback on local/remote use
 - [ ] add csv file export backup
 
 ---

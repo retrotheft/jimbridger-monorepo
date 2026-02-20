@@ -8,7 +8,8 @@ declare global {
 		// interface PageState {}
       interface Platform {
          env: {
-            KV_SHEETS: KVNamespace
+            KV_SHEETS: KVNamespace,
+            KV_MODE: 'local' | 'remote'
          }
 		}
 	}

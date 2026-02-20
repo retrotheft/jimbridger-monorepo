@@ -14,8 +14,6 @@
 
    // svelte-ignore state_referenced_locally -- only want initial value on load
    setRemoteContext({ compare, initialValue: current.value && current.metadata ? current : null, save });
-
-   $inspect(remoteSheet)
 </script>
 
 {@render children?.()}

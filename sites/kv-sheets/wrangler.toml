@@ -7,4 +7,7 @@ compatibility_date = "2025-01-25"
 [[kv_namespaces]]
 binding = "KV_SHEETS"
 id = "e103a04c1dba4d83bf5ceb2cc3c4b1ed"
-remote = false
+remote = false # remember to change KV_MODE below accordingly!
+
+[vars]
+KV_MODE = "local"

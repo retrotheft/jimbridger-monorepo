@@ -2,7 +2,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css'
 
-	let { children } = $props();
+	let { data, children } = $props();
 </script>
 
 <svelte:head>
@@ -13,6 +13,9 @@
    <nav>
       <a href="/">Home</a>
    </nav>
+   <ul>
+      <li>server: <span class={data.kvMode}>{data.kvMode}</span></li>
+   </ul>
 </header>
 
 <svelte:boundary>
@@ -27,3 +30,34 @@
       <button onclick={reset}>Try again</button>
    {/snippet}
 </svelte:boundary>
+
+<style>
+   header {
+      display: flex;
+   }
+   ul {
+      margin-left: auto;
+      margin-block: 0;
+      padding-inline-start: 0;
+   }
+
+   li {
+      list-style-type: none;
+   }
+
+   span {
+      font-weight: bold;
+   }
+
+   span.local {
+      color: lightgreen;
+   }
+
+   span.remote {
+      color: lightcoral;
+   }
+
+   span.unknown {
+      color: grey;
+   }
+</style>
