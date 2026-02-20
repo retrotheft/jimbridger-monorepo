@@ -8,10 +8,12 @@
    - [x] comparison
    - [x] save remote: pass save function to `Remote.svelte`, provide via context
 - [x] delete unused files
-- [ ] create new sheet on empty navigation
+- [x] create new sheet on empty navigation
+- [ ] add csv file export backup
 
 ---
 
+- [ ] need to handle case where query.current has either value or metadata but not both
 - [ ] revise lastSaved logic (currently adding Date.now on save, not part of in-memory sheet)
 - [ ] enforce field name uniqueness
 
