@@ -10,20 +10,10 @@
 - [x] delete unused files
 - [x] create new sheet on empty navigation
 - [x] check for ui feedback on local/remote use
-- [ ] add csv file export backup
+- [x] add txt file download - use for dev data in main site and sitekit
 
 ---
 
 - [ ] need to handle case where query.current has either value or metadata but not both
 - [ ] revise lastSaved logic (currently adding Date.now on save, not part of in-memory sheet)
 - [ ] enforce field name uniqueness
-
----
-
-## Files to Keep
-
-- Remote
-- Local
-- Sheet.svelte.ts
-- everything in `components/Sheet`
--

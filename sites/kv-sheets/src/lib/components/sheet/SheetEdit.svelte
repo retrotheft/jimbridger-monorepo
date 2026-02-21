@@ -5,6 +5,7 @@
    import SheetBody from '$lib/components/sheet/SheetBody.svelte'
    import SheetCell from '$lib/components/sheet/SheetCell.svelte'
    import SheetHead from "./SheetHead.svelte";
+   import Download from '$lib/components/Download.svelte'
 
    const { compare, initialValue: remote, save:saveRemote } = getRemoteContext()
    const { initialValue: local, save:saveLocal } = getLocalContext()
@@ -18,6 +19,7 @@
 <button onclick={() => console.log(sheet.snapshot)}>Log Sheet</button>
 <button onclick={() => saveLocal(sheet)}>Save Local Sheet</button>
 <button onclick={() => saveRemote(sheet)}>Save Remote Sheet</button>
+<Download content={sheet.csv} filename={`${sheet.key}.txt`} />
 
 <table>
    <SheetHead {sheet} />
