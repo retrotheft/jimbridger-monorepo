@@ -17,6 +17,7 @@
       min-width: 100%;
       min-height: 2lh;
       padding: 1em;
+      white-space: initial;
    }
 
    :global(.right div.popup) {

@@ -7,6 +7,7 @@
    import HeaderPopup from './HeaderPopup.svelte'
    import VideoTracker from './VideoTracker.svelte'
    import Clock from './Clock.svelte'
+   import Workouts from './Workouts.svelte'
 </script>
 
 <header>
@@ -44,7 +45,12 @@
       <li>Games</li>
    </ul>
    <ul>
-      <li class="has-popup">habits
+      <li class="has-popup right">workouts
+         <HeaderPopup>
+            <Workouts />
+         </HeaderPopup>
+      </li>
+      <li class="has-popup right">habits
          <HeaderPopup>
             <ul id="habits">
                <li>Walk</li>
@@ -92,6 +98,7 @@
       /*justify-content: space-between;*/
       align-items: center;
       font-weight: bold;
+      white-space: nowrap;
 
       > :first-child {
          justify-content: start;
@@ -181,10 +188,10 @@
       /*transform: translateY(2px);*/
    }
 
-   span#followers {
+   /*span#followers {
       color: white;
       transform: translateY(2px);
-   }
+   }*/
 
    span#svelte {
       color: #fb3c1c;
