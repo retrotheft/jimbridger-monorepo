@@ -10,7 +10,7 @@
 
    onMount(async () => {
       const response = await getWorkoutsQuery;
-      console.log(response);
+      console.log("Response", response);
       const array = response.value.split(RS).map((r) => r.split(US));
       data = array;
    });

@@ -28,7 +28,7 @@
                <input type="text" bind:value={fields[index]} {onkeydown} />
                <button onclick={() => sheet.removeField(index)}>x</button>
             {:else}
-               {field}<button onclick={() => sheet.sort(index)}>sort</button>
+               <button class="field-sort" onclick={() => sheet.sort(index)}>{field}</button>
             {/if}
          </th>
       {/each}
@@ -42,5 +42,15 @@
 
    th#controls {
       text-align: right;
+   }
+
+   button.field-sort {
+      all: unset;
+      text-decoration: underline;
+      cursor: pointer;
+
+      &:hover {
+         color: lightgreen;
+      }
    }
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-   import { DualLayerDot, TextRecessed } from "sitekit";
+
 </script>
 
 <nav>

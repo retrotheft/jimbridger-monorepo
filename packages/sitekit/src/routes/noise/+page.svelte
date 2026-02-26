@@ -1,12 +1,12 @@
 <script lang="ts">
-   import "../app.css";
-   import { ShinyBorder, DualLayerDot, TextRecessed } from "$lib/index.js";
+   import "../../app.css";
+   import { ShinyBorder, DotPNG, TextRecessed } from "$lib/index.js";
     // import SandBlasted from "$lib/SandBlasted.svelte";
 </script>
 
 <main>
    <ShinyBorder>
-      <DualLayerDot>
+      <DotPNG>
          <TextRecessed>
             <article class="post">
                <p>
@@ -29,7 +29,7 @@
                </p>
             </article>
          </TextRecessed>
-      </DualLayerDot>
+      </DotPNG>
    </ShinyBorder>
    <!-- <SandBlasted> -->
       <article class="post sandblasted">

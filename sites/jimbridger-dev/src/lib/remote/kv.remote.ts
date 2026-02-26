@@ -15,7 +15,9 @@ export const getValue = query(z.string(), async (key) => {
 });
 
 export const getValueWithMetadata = query(z.string(), async (key) => {
-	const kv = getKV();
+   const kv = getKV();
+	console.log(kv)
    const value = await kv.getWithMetadata(key);
+   console.log(value)
    return value;
 });
