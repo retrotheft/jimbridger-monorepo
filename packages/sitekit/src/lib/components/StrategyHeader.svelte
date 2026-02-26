@@ -8,6 +8,7 @@
    import VideoTracker from './VideoTracker.svelte'
    import Clock from './Clock.svelte'
    import Workouts from './Workouts.svelte'
+   import Heart from '$lib/assets/Heart.svelte'
 </script>
 
 <header>
@@ -32,11 +33,11 @@
                <footer>Data is collected from the github api and cached in Cloudflare KV.</footer>
             </div>
          </HeaderPopup>
-         <li><SvelteLogo /><span id="svelte" class="commits">681</span></li>
+         <li><SvelteLogo /><span id="svelte" class="commits">761</span></li>
          <li>
-            <TypescriptLogo /><span id="typescript" class="commits">496</span>
+            <TypescriptLogo /><span id="typescript" class="commits">820</span>
          </li>
-         <li><CSSLogo /><span id="css" class="commits">175</span></li>
+         <li><CSSLogo /><span id="css" class="commits">202</span></li>
       </ul>
    </div>
    <ul>
@@ -45,12 +46,12 @@
       <li>Games</li>
    </ul>
    <ul>
-      <li class="has-popup right">workouts
+      <li class="has-popup right"><Heart />
          <HeaderPopup>
             <Workouts />
          </HeaderPopup>
       </li>
-      <li class="has-popup right">habits
+      <!-- <li class="has-popup right">habits
          <HeaderPopup>
             <ul id="habits">
                <li>Walk</li>
@@ -58,17 +59,17 @@
                <li>Code</li>
             </ul>
          </HeaderPopup>
-      </li>
-      <li class="has-popup">0 / 26 videos
+      </li> -->
+      <!-- <li class="has-popup">0 / 26 videos
          <HeaderPopup>
             <div class="popup-content">
                <VideoTracker />
             </div>
          </HeaderPopup>
-      </li>
+      </li> -->
       <!-- <li>43rd day</li>
       <li>16:00</li> -->
-      <li>status (zZZ)</li>
+      <!-- <li>status (zZZ)</li> -->
       <li class="has-popup right">
          <Clock />
          <HeaderPopup>
@@ -83,14 +84,14 @@
 </header>
 
 <style>
-   :global(header svg) {
-      --size: 24px;
+   :global(header svg:not(.chart)) {
+      --size: 18px;
       width: var(--size);
       height: var(--size);
    }
 
    header {
-      --_padding: 1em 1em;
+      --_padding: 0.5em;
       user-select: none;
       background-color: oklch(15% 0 0 / 0.3);
       display: grid;
