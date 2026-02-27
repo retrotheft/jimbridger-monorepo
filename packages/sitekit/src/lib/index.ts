@@ -1,7 +1,7 @@
 export * from '$lib/constants.js'
 export * from '$lib/types/index.js'
 
-export * as panelCss from './assets/panel.css'
+export { default as fonts } from './styles/fonts.css?inline'
 
 export { default as Avatar } from './components/Avatar.svelte'
 export { default as DateDisplay } from './components/DateDisplay.svelte'

@@ -1,14 +1,14 @@
 <script lang="ts">
-   import GitHubStar from "$lib/assets/GitHubStar.svelte";
-   import DevToFollower from "$lib/assets/DevToFollower.svelte";
-   import TypescriptLogo from "$lib/assets/TypescriptLogo.svelte";
-   import SvelteLogo from "$lib/assets/SvelteLogo.svelte";
-   import CSSLogo from '$lib/assets/CSSLogo.svelte'
+   import GitHubStar from "$lib/assets/svelte-svgs/GitHubStar.svelte";
+   import DevToFollower from "$lib/assets/svelte-svgs/DevToFollower.svelte";
+   import TypescriptLogo from "$lib/assets/svelte-svgs/TypescriptLogo.svelte";
+   import SvelteLogo from "$lib/assets/svelte-svgs/SvelteLogo.svelte";
+   import CSSLogo from '$lib/assets/svelte-svgs/CSSLogo.svelte'
+   import Heart from '$lib/assets/svelte-svgs/Heart.svelte'
    import HeaderPopup from './HeaderPopup.svelte'
    import VideoTracker from './VideoTracker.svelte'
    import Clock from './Clock.svelte'
    import Workouts from './Workouts.svelte'
-   import Heart from '$lib/assets/Heart.svelte'
 </script>
 
 <header>
@@ -178,10 +178,6 @@
       footer {
          font-size: 0.75rem;
       }
-   }
-
-   ul#habits {
-      display: grid;
    }
 
    span#stars {

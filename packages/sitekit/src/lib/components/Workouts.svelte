@@ -35,9 +35,6 @@
       });
       return [hrData, powerData];
    }
-
-   $inspect(data1);
-   $inspect(data2);
 </script>
 
 <div>

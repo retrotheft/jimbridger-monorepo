@@ -1,8 +1,8 @@
 <script lang="ts">
    import DateDisplay from "./DateDisplay.svelte";
-   import Heart from '$lib/assets/Heart.svelte'
-   import Power from "$lib/assets/Power.svelte";
-   import Time from "$lib/assets/Time.svelte";
+   import Heart from '$lib/assets/svelte-svgs/Heart.svelte'
+   import Power from "$lib/assets/svelte-svgs/Power.svelte";
+   import Time from "$lib/assets/svelte-svgs/Time.svelte";
 
    let { workout, moveIndex } = $props()
 </script>
