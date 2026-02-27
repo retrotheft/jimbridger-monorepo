@@ -1,6 +1,6 @@
 @font-face {
    font-family: "Exo 2";
-   src: url("fonts/Exo2/Exo2-VariableFont_wght.ttf") format("truetype");
+   src: url("/fonts/Exo2/Exo2-VariableFont_wght.ttf") format("truetype");
    font-weight: 100 900;
    font-style: normal;
    font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
    font-family: "Exo 2";
-   src: url("fonts/Exo2/Exo2-Italic-VariableFont_wght.ttf") format("truetype-variations");
+   src: url("/fonts/Exo2/Exo2-Italic-VariableFont_wght.ttf") format("truetype-variations");
    font-weight: 100 900;
    font-style: italic;
    font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
    font-family: "Nunito Sans";
-   src: url("fonts/NunitoSans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+   src: url("/fonts/NunitoSans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
    font-weight: 200 1000;
    font-style: normal;
    font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
    font-family: "Nunito Sans";
-   src: url("fonts/NunitoSans/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+   src: url("/fonts/NunitoSans/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
    font-weight: 200 1000;
    font-style: italic;
    font-display: swap;
