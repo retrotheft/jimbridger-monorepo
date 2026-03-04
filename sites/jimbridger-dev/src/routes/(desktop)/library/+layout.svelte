@@ -18,3 +18,9 @@
       <strong>dev.to</strong></em>
    </p>
 </footer>
+
+<style>
+   footer {
+      place-items: center;
+   }
+</style>

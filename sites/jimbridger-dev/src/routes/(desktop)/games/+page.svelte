@@ -17,6 +17,7 @@
    main#games {
       display: grid;
       place-items: center;
+      padding: 2em;
    }
 
    ul {
@@ -34,8 +35,5 @@
       width: 100%;
       height: 100%;
       padding: 1em;
-   }
-
-   :global(.glass-panel.vt) {
    }
 </style>

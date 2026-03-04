@@ -1,6 +1,6 @@
 <script lang="ts">
    import favicon from "$lib/assets/favicon.svg";
-   import "../app.css";
+   import "../../app.css";
    import '$lib/assets/fonts.css'
    import { onNavigate } from "$app/navigation";
    import { TextRecessed, DotPNG } from "sitekit";

@@ -12,3 +12,10 @@
       {/each}
    </ol>
 </main>
+
+<style>
+   main {
+      place-items: center;
+      padding: 1em;
+   }
+</style>
