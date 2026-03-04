@@ -3,6 +3,7 @@
    import { RS, US, DateDisplay, LineChart } from 'sitekit'
    import type { DataPoint } from "sitekit";
    import Workout from "./Workout.svelte";
+   import { getValue } from "$lib/remote/kv.remote";
 
    let data = $state<string[][]>([[]]);
    let currentIndex = $state(0);
@@ -10,8 +11,8 @@
    const [data1, data2] = $derived(mapChartData());
 
    onMount(async () => {
-      const response = await fetch("workouts.txt");
-      const body = await response.text();
+      const response = await getValue('workouts') as string
+      const body = response ?? ''
       data = body.split(RS).map((r) => r.split(US));
       currentIndex = data.length - 1;
    });
@@ -33,9 +34,6 @@
       });
       return [hrData, powerData];
    }
-
-   $inspect(data1);
-   $inspect(data2);
 </script>
 
 <div>

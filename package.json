@@ -7,6 +7,7 @@
     "dev": "pnpm -F jimbridger-dev run dev",
     "dev:auth": "pnpm -F indieauth run dev",
     "dev:sk": "pnpm -F sitekit run dev",
+    "dev:kv": "pnpm -F kv-sheets run dev",
     "build:sk": "pnpm -F sitekit run build",
     "build:auth": "pnpm -F indieauth run build"
   },
