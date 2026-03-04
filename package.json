@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -F jimbridger-dev run dev",
+    "dev:auth": "pnpm -F indieauth run dev",
     "dev:sk": "pnpm -F sitekit run dev",
-    "build:sk": "pnpm -F sitekit run build"
+    "build:sk": "pnpm -F sitekit run build",
+    "build:auth": "pnpm -F indieauth run build"
   },
   "keywords": [],
   "author": "",

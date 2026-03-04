@@ -1,0 +1,30 @@
+body {
+   background: oklch(.3 .04 235);
+   color: white;
+   font-family: sans-serif;
+   display: grid;
+   place-items: center;
+   height: 100vh;
+   margin: 0;
+}
+
+#login-form {
+   display: grid;
+   max-width: 32ch;
+   border: 1px solid grey;
+   padding: 1em;
+
+   label {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.75rem;
+   }
+
+   input {
+      margin-bottom: 1em;
+   }
+
+   button {
+      margin-top: 1em;
+   }
+}
