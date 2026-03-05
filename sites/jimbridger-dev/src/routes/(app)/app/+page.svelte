@@ -1,8 +1,13 @@
+<script lang="ts">
+   import './hi-guide.css'
+</script>
+
 <main>
    <header>
       <button>Back</button>
       <h1>My Todo</h1>
-      <span>&nbsp;</span>
+      <img src="/app-icons/menu.png" alt="menu" />
+      <!-- <span>&nbsp;</span> -->
    </header>
    <ul>
       <li><span>Create App Mockup</span><input type="checkbox" checked /></li>
@@ -16,7 +21,6 @@
          <img src="/app-icons/message.png" alt="message" />
          <img src="/app-icons/water.png" alt="water" />
          <img src="/app-icons/bookmark.png" alt="bookmark" />
-         <img src="/app-icons/menu.png" alt="menu" />
       </nav>
    </footer>
 </main>
@@ -38,13 +42,14 @@
    header, footer {
       background-color: black;
       color: white;
+      align-items: center;
    }
 
    header {
       display: grid;
       grid-template-columns: 1fr 5fr 1fr;
       justify-items: center;
-      padding: 0.75em 1em;
+      padding-inline: 1em;
    }
 
    h1 {
@@ -65,6 +70,7 @@
       font-weight: bold;
       font-size: 1.25rem;
       color: lightgrey;
+      justify-self: start;
    }
 
    ul {
@@ -85,8 +91,9 @@
    }
 
    input {
-      aspect-ratio: 1;
-      width: 2em;
+      transform: scale(3);
+      /*aspect-ratio: 1;*/
+      /*width: 2em;*/
       /*height: 2em;*/
    }
 

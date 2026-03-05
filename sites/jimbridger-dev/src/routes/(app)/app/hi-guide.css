@@ -1,0 +1,24 @@
+button, img {
+   min-width: 44px;
+   min-height: 44px;
+}
+
+header {
+   min-height: 44px;
+}
+
+header:has(.status-bar) {
+   min-height: 64px;
+}
+
+footer {
+   min-height: 49px;
+}
+
+button, input, img {
+   margin: 8px;
+}
+
+li {
+   min-height: 44px;
+}
